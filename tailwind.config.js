@@ -8,7 +8,11 @@ module.exports = {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Minine: ['Minnie', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
