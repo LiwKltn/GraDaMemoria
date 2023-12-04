@@ -534,6 +534,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+<<<<<<< HEAD
 .m-5 {
   margin: 1.25rem;
 }
@@ -598,6 +599,18 @@ video {
 
 .text-center {
   text-align: center;
+=======
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+>>>>>>> f81647f3e9a5425c32b71b1fd2439e3061c9a980
 }
 
 .text-3xl {
