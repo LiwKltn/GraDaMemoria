@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const returnButton = document.getElementById("returnButton");
-    const sound = new Audio("../../../assets/sounds/click-button.mp3");
- 
-    returnButton.addEventListener('click', (e) => {
+const sound = new Audio(" ../../../../src/assets/sounds/click-button.mp3");
+const returnButton = document.getElementById("return-button");
+
+document.addEventListener('DOMContentLoaded', function() { 
+    returnButton.addEventListener('click', function() {    
         sound.play();
         window.history.back();
     });
- });
+});
