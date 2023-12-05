@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Minine: ['Minnie', 'sans-serif'],
+        Minnie: ['Minnie', 'sans-serif'],
       },
     },
   },

@@ -595,6 +595,10 @@ video {
   text-align: center;
 }
 
+.font-Minnie {
+  font-family: Minnie, sans-serif;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
