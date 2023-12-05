@@ -555,10 +555,18 @@ video {
   width: 6rem;
 }
 
+<<<<<<< HEAD
+=======
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+>>>>>>> e0038cdd0729162d832999a21c2b10d1749258aa
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+<<<<<<< HEAD
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
@@ -596,6 +604,8 @@ video {
   animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+=======
+>>>>>>> e0038cdd0729162d832999a21c2b10d1749258aa
 .rounded {
   border-radius: 0.25rem;
 }
