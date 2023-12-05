@@ -4,6 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
  
     returnButton.addEventListener('click', (e) => {
         sound.play();
-        window.history.back()
+
     });
  });
