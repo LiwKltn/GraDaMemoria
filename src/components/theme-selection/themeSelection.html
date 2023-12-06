@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../src/input.css">
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./themeSelection.css">
+    <title>NumCards</title>
+</head>
+<body>
+    <h2 class="font-Minnie flex justify-center">Elige el tema</h2>
+
+    <ul class="flex justify-center m-10 max-w-md mx-auto">
+        <li class="relative m-4" style="margin-right: 15px;">
+          <input class="sr-only peer" type="radio" value="HTML" name="answerTheme" id="answer_HTML">
+          <label class="w-24 py-2 px-3 my-4 transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200" for="answer_HTML">HTML</label>
+        </li>
+
+        <li class="relative m-4" style="margin-right: 15px;">
+          <input class="sr-only peer" type="radio" value="CSS" name="answerTheme" id="answer_CSS">
+          <label class="w-24 py-2 px-3 my-4 transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200" for="answer_CSS">CSS</label>
+        </li>
+
+        <li class="relative m-4">
+          <input class="sr-only peer" type="radio" value="JS" name="answerTheme" id="answer_JS">
+          <label class="w-24 py-2 px-3 my-4 transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200" for="answer_JS">JS</label>
+        </li>
+      </ul>
+
+    <script src="./themeSelection.js"></script>
+</body>
+</html>
