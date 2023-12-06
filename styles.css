@@ -8,14 +8,19 @@ body {
 
 .card {
     border: 2px solid #000;
+    border-radius: 20px;
     padding: 20px;
     text-align: center;
+    
 }
 
 input {
     width: 200px;
     padding: 10px;
     margin: 10px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
 }
 
 button {
@@ -24,4 +29,8 @@ button {
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 10px
+}
+h1{
+    font-size: 25px;
 }

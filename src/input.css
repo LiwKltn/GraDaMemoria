@@ -1,12 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-    font-family: 'Minnie';
-    src: url('./assets/fonts/Minnie.TTF') format('ttf');
-  }
-
-  body {
-    font-family: 'Minnie', sans-serif;
-  }
+@import url('https://fonts.cdnfonts.com/css/minnie');

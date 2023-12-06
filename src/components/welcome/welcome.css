@@ -1,0 +1,17 @@
+.welcomeLayout{
+    width: 247px;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+.welcomeTypography {
+    color: white;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke: 1.5px black;
+    font-family: Minnie;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 44px; /* 110% */
+}
