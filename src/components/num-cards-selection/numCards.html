@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../src/input.css">
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="numCards.css">
+    <title>NumCards</title>
+</head>
+<body>
+    <h2 class="font-Minnie flex justify-center">Elige el número de cartas</h2>
+
+    <ul class="flex justify-center m-10 max-w-md mx-auto">
+        <li class="relative m-4" style="margin-right: 15px;">
+          <input class="sr-only peer" type="radio" value="12" name="answer" id="answer_12">
+          <label class="w-24 py-2 px-3 my-4 transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200 peer-checked:ring-green-500" for="answer_12">12</label>
+        </li>
+
+        <li class="relative m-4" style="margin-right: 15px;">
+          <input class="sr-only peer" type="radio" value="24" name="answer" id="answer_24">
+          <label class="w-24 py-2 px-3 my-4 transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200 " for="answer_24">24</label>
+        </li>
+
+        <li class="relative">
+          <input class="sr-only peer" type="radio" value="30" name="answer" id="answer_30">
+          <label class="w-24 py-2 px-3 my-4 transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200" for="answer_30">30</label>
+        </li>
+      </ul>
+
+    <script src="./numCards.js"></script>
+</body>
+</html>
