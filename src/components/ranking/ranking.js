@@ -2,7 +2,7 @@ let game = {
 	score: {
     maxEntries: 3,
     getRankings: function () {
-      var highRankings = localStorage.getItem('highRankings');
+      let highRankings = localStorage.getItem('highRankings');
 
       // Parseamos la cadena JSON a un objeto o inicializar un array vacío si no hay datos
       return highRankings ? JSON.parse(highRankings) : [];
