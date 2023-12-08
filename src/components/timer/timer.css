@@ -1,0 +1,21 @@
+.criticalTime{
+    width:200px;
+    height: 50px;
+    background-color: rgb(255, 0, 102);
+    padding: 15px;	
+    text-align: center;
+    line-height: 50px;
+    animation: blink 1s linear infinite;
+}
+.criticalTime span{
+
+    font-size: 25px;
+    font-family: cursive;
+    color: white;
+    
+}
+@keyframes blink{
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+}
