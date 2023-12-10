@@ -29,8 +29,10 @@ let game = {
         let _this = this;
         this.intervalId = setInterval(() => {
             _this.remainingTime--;
-            if (_this.remainingTime===0)
+            if (_this.remainingTime===0){
                 _this.clearPlayedGameInterval();
+                window.location.href = "gameover.html";
+            }
             else if(_this.remainingTime <= 5){
                 //Añadir efecto crítico te quedas sin tiempo y vas a perder.
                 document.getElementById("countDown").setAttribute("class", "criticalTime")

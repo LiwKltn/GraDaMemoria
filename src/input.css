@@ -75,3 +75,9 @@ input[type="radio"]:checked + label {
   background-color: rgb(182 182 182 / 0.9);
   color: white;
 }
+
+/* Ranking */
+.listBulletType {
+  margin-left: 25px;
+  list-style-type: auto;
+}
