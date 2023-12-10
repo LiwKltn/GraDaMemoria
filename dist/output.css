@@ -228,6 +228,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  appearance: button;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -275,6 +276,8 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 [type='search'] {
   -webkit-appearance: textfield;
+  appearance: textfield;
+  /* 1 */
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -414,7 +417,6 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
   /* 2 */
 }
 
@@ -738,25 +740,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.from-neutral-900 {
-  --tw-gradient-from: #171717 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(23 23 23 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-zinc-800 {
-  --tw-gradient-to: rgb(39 39 42 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #27272a var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-zinc-700 {
-  --tw-gradient-to: #3f3f46 var(--tw-gradient-to-position);
-}
-
 .p-4 {
   padding: 1rem;
 }
@@ -881,6 +864,29 @@ footer {
 
 #soundIcon:active, #musicIcon:active, #instructionsIcon:active {
   transform: translateY(1px);
+}
+
+/* Footer */
+
+footer {
+  background-color: #000;
+}
+
+#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
+  transform: translateY(1px);
+}
+
+/* Estilo radiobuttons selección de número de cartas y tema */
+
+input[type="radio"]:checked + label {
+  border: 1px solid #000000;
+  background-color: rgb(182 182 182 / 0.9);
+  color: white;
 }
 
 .hover\:-translate-y-1:hover {
