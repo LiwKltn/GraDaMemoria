@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -121,10 +121,8 @@ strong {
 }
 
 /*
-1. Use the user's configured `mono` font-family by default.
-2. Use the user's configured `mono` font-feature-settings by default.
-3. Use the user's configured `mono` font-variation-settings by default.
-4. Correct the odd `em` font sizing in all browsers.
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
@@ -133,12 +131,8 @@ samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
-  font-feature-settings: normal;
-  /* 2 */
-  font-variation-settings: normal;
-  /* 3 */
   font-size: 1em;
-  /* 4 */
+  /* 2 */
 }
 
 /*
@@ -234,6 +228,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  appearance: button;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -281,6 +276,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 [type='search'] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -420,7 +416,6 @@ embed,
 object {
   display: block;
   /* 1 */
-  vertical-align: middle;
   /* 2 */
 }
 
@@ -847,6 +842,19 @@ video {
 .bg-teal-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(45 212 191 / var(--tw-bg-opacity));
+
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+=======
+
 }
 
 .bg-white {
@@ -866,6 +874,15 @@ video {
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .p-4 {
@@ -1006,13 +1023,10 @@ video {
 }
 
 .flip-card{
-  width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
-  margin: 5px;
-  position: relative;
-  transform: scale(1);
+  transition: transform 1s;
   transform-style: preserve-3d;
-  transition: transform .5s;
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
 }
 
 .flip-card:hover .flip-card {
@@ -1020,19 +1034,11 @@ video {
 }
 
 .flip-card-front, .flip-card-back {
-  /* Safari */
   backface-visibility: hidden;
 }
 
-/* Style the back side */
-
 .flip-card-back {
   transform: rotateY(180deg);
-}
-
-.element{
-  font-size: 0.50rem;
-  line-height: 0.60rem;
 }
 
 .container-card{
@@ -1041,6 +1047,14 @@ video {
 
 .disappear{
   visibility: hidden;
+}
+
+.container-card {
+  padding: 5px;
+}
+
+.element {
+  padding: 5px;
 }
 
 footer {
@@ -1170,11 +1184,10 @@ input[type="radio"]:checked + label {
     line-height: 1;
   }
 
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  .md\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
-}
 
 @media (min-width: 1024px) {
   .lg\:h-16 {
