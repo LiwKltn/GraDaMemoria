@@ -54,3 +54,24 @@ footer {
 #soundIcon:active, #musicIcon:active, #instructionsIcon:active {
   transform: translateY(1px);
 }
+
+/* Footer */
+footer {
+  background-color: #000;
+}
+
+#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
+  transform: translateY(1px);
+}
+
+/* Estilo radiobuttons selección de número de cartas y tema */
+input[type="radio"]:checked + label {
+  border: 1px solid #000000;
+  background-color: rgb(182 182 182 / 0.9);
+  color: white;
+}
