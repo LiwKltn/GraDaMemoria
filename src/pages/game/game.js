@@ -18,11 +18,11 @@ function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element w-full h-full font-Minnie text-xs md:text-base flex flex-wrap justify-center items-center text-center p-2"
+    "element w-full h-full font-Minnie text-xs md:text-base flex flex-wrap justify-center items-center text-center"
   );
  
   elementArray.textContent = data.elements[i].element;
-
+  67a2b72708e344402014a50b068283d87a8ada10
   return elementArray;
   
 }
@@ -31,7 +31,7 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element flex flex-wrap p-2 font-mono text-xs md:text-sm italic text-center font-bold"
+    "element flex flex-wrap p-1 font-mono text-xs md:text-base italic text-center font-bold"
   );
   explanationArray.textContent = data.elements[i].explanation;
   return explanationArray;
@@ -47,11 +47,11 @@ function printCard(data, id) {
   cardImage.src =
     "https://img.freepik.com/free-photo/3d-rendering-optical-illusion_23-2150854149.jpg?w=740&t=st=1702051950~exp=1702052550~hmac=3efef74efb1008d874039b2e42742c44d824c70af120fd7d428e7bd6a06a36b7";
 
-  containerNewCard.setAttribute("class",  "container-card relative m-2 h-28 md:h-28 w-16 md:w-24");
+  containerNewCard.setAttribute("class",  "container-card relative m-2 h-18 md:h-28 w-16 md:w-24");
 
   containerNewCardPair.setAttribute(
     "class",
-    "container-card relative m-2 h-28 md:h-28 w-16 md:w-24 md:text-sm"
+    "container-card relative m-2 h-28 md:h-28 w-16 md:w-24"
   );
 
   newCard.setAttribute(
@@ -163,10 +163,9 @@ async function init() {
 }
 init();
 
-
 let hits = 0;
 let mistakes = 0;
-export function makingPairs() {
+function makingPairs() { 
   let firstCard = null;
   let secondCard; 
   let firstContainer;
@@ -174,8 +173,8 @@ export function makingPairs() {
 
   contentCard.addEventListener("click", (event) => {
     let clickedContainer = event.target.closest(".container-card");
-    let clickedCard = clickedContainer.querySelector("article");
-
+    let clickedCard = clickedContainer ? clickedContainer.querySelector("article") : null;
+  
     if (clickedContainer) {
       clickedContainer.classList.add("flip-card");
       
@@ -183,13 +182,11 @@ export function makingPairs() {
         // Se cardId for null, é a primeira carta virada
         firstCard = clickedCard;
         firstContainer = clickedContainer;
-
-        return
-        
+  
+        return;
       } else {
         secondCard = clickedCard;
         secondContainer = clickedContainer;
-  
       }
 
         // É a segunda carta virada, comparar com a primeira
@@ -253,5 +250,40 @@ function points(timer, cards){
 
   return total;
 }
-
+console.log(points(30, 12))
 points(30, 12);
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const audio = document.getElementById('audioPlayer');
+  const soundIcon = document.getElementById('soundIcon');
+  const musicIcon = document.getElementById('musicIcon');
+  const instructionsIcon = document.getElementById('instructionsIcon'); 
+
+  soundIcon.addEventListener('click', toggleSound);
+  musicIcon.addEventListener('click', initiateMusic);
+  instructionsIcon.addEventListener('click', function() { 
+      window.location.href = '../../pages/instructions/instructions.html'; 
+  });
+
+  function toggleSound() {
+      audio.paused ? audio.play() : audio.pause();
+      updateIcons();
+  }
+
+  function initiateMusic() {
+      audio.play();
+      updateIcons();
+  }
+
+  function updateIcons() {
+      const soundIconImg = audio.paused ? '../../assets/img/sin-sonido.png' : '../../assets/img/sin-sonido.png';
+      const musicIconImg = audio.paused ? '../../assets/img/sin-musica.png' : '../../assets/img/sin-musica.png';
+
+      soundIcon.innerHTML = `<img src="${soundIconImg}" alt="icono de sonido" style="width: 30px; height: 30px;">`;
+      musicIcon.innerHTML = `<img src="${musicIconImg}" alt="icono de musica" style="width: 30px; height: 30px;">`;
+  }
+
+  updateIcons();
+});
+
