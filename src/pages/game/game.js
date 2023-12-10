@@ -20,7 +20,7 @@ function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element w-full h-full absolut font-Minnie text-xs md:text-xs flex whitespace-nowrap overflow-ellipsis justify-center items-center text-center"
+    "element w-full h-full absolut font-Minnie text-xs md:text-xs flex justify-center items-center text-center"
   );
  
   elementArray.textContent = data.elements[i].element;
