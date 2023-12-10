@@ -1,0 +1,12 @@
+footer {
+    background-color: #000;
+}
+
+#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
+    transform: translateY(1px);
+}
