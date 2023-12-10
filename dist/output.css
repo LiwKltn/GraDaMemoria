@@ -657,6 +657,14 @@ video {
   justify-items: center;
 }
 
+.overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -739,8 +747,8 @@ video {
      object-fit: cover;
 }
 
-.p-1 {
-  padding: 0.25rem;
+.p-2 {
+  padding: 0.5rem;
 }
 
 .p-5 {
@@ -824,38 +832,34 @@ video {
 }
 
 .flip-card{
-  position: relative;
-  transition: transform 0.8s;
+  transition: transform 1s;
   transform-style: preserve-3d;
-  transform: rotateY(180deg);
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
 }
-
-/* Do an horizontal flip when you move the mouse over the flip box container */
-
-.flip-card:hover .flip-card {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
 
 .flip-card-front, .flip-card-back {
-  /* Safari */
   backface-visibility: hidden;
 }
-
-/* Style the back side */
 
 .flip-card-back {
   transform: rotateY(180deg);
 }
 
-.element{
-  font-size: 0.50rem;
-  line-height: 0.60rem;
-}
-
 .container-card{
   box-sizing: border-box;
+}
+
+.disappear{
+  visibility: hidden;
+}
+
+.container-card {
+  padding: 5px;
+}
+
+.element {
+  padding: 5px;
 }
 
 .hover\:-translate-y-1:hover {
@@ -880,36 +884,8 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:h-40 {
-    height: 10rem;
-  }
-
-  .md\:h-36 {
-    height: 9rem;
-  }
-
-  .md\:h-32 {
-    height: 8rem;
-  }
-
   .md\:h-28 {
     height: 7rem;
-  }
-
-  .md\:w-3 {
-    width: 0.75rem;
-  }
-
-  .md\:w-36 {
-    width: 9rem;
-  }
-
-  .md\:w-32 {
-    width: 8rem;
-  }
-
-  .md\:w-28 {
-    width: 7rem;
   }
 
   .md\:w-24 {
@@ -920,8 +896,8 @@ video {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  .md\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
