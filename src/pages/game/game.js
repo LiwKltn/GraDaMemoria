@@ -18,7 +18,7 @@ function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element w-full h-full font-Minnie text-xs md:text-base flex flex-wrap justify-center items-center text-center"
+    "element w-full h-full font-Minnie text-xs md:text-base flex flex-wrap justify-center items-center text-center p-2"
   );
  
   elementArray.textContent = data.elements[i].element;
@@ -31,7 +31,7 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element flex flex-wrap p-1 font-mono text-xs md:text-base italic text-center font-bold"
+    "element flex flex-wrap p-2 font-mono text-xs md:text-sm italic text-center font-bold"
   );
   explanationArray.textContent = data.elements[i].explanation;
   return explanationArray;
@@ -51,7 +51,7 @@ function printCard(data, id) {
 
   containerNewCardPair.setAttribute(
     "class",
-    "container-card relative m-2 h-28 md:h-28 w-16 md:w-24"
+    "container-card relative m-2 h-28 md:h-28 w-16 md:w-24 md:text-sm"
   );
 
   newCard.setAttribute(
@@ -158,25 +158,15 @@ function getRandomId(theme) {
 }
 
 async function init() {
-  await generateCards("htfgml", 4);
+  await generateCards("htfgml", 12);
   shuffleCards();
 }
 init();
 
-// capture click
-// card content
-// save card content 1
-// keep open
-// another click
-// save the data in variable 2
-//  keep open
-// compare
 
-
-
-function makingPairs() {
-  let hits = 0;
-  let mistakes = 0;
+let hits = 0;
+let mistakes = 0;
+export function makingPairs() {
   let firstCard = null;
   let secondCard; 
   let firstContainer;
@@ -193,44 +183,75 @@ function makingPairs() {
         // Se cardId for null, é a primeira carta virada
         firstCard = clickedCard;
         firstContainer = clickedContainer;
-        console.log(firstCard.id);
-        console.log(firstCard);
+
         return
         
       } else {
         secondCard = clickedCard;
         secondContainer = clickedContainer;
-        console.log(secondCard)
-        console.log(secondCard.id)
+  
       }
 
         // É a segunda carta virada, comparar com a primeira
         if (secondCard.id === firstCard.id) {
-          console.log(secondCard);
-          console.log(firstCard);
+          console.log(secondCard)
+          console.log(firstCard)
+
           // console.log("Hit! Card ID:", cardId);
           hits++;
           setTimeout(() => {
-            secondContainer.classList.add("correct");
-            firstContainer.classList.add("correct");
-            secondContainer.classList.add("disappear");
             firstContainer.classList.add("disappear");
+            secondContainer.classList.add("disappear");
+            firstCard.classList.add("disappear")
+            secondCard.classList.add("disappear");
+            return
           }, 3000); // Ajuste o tempo conforme necessário
           
         } else {
           // console.log("Mistake! Card ID:", clickedId);
           mistakes++;
           setTimeout(() => {
-            clickedContainer.classList.add(".wrong");
-            firstContainer.classList.add(".wrong")
+            firstCard = null;
             clickedContainer.classList.remove("flip-card");
+            secondCard = null;
             firstContainer.classList.remove("flip-card")
-          }, 2000); // Ajuste o tempo conforme necessário
-        }
-
-        // Resetar cardId para null para a próxima jogada
-        firstCard = null;
+          }, 2000); 
+        }    
       }
   });
 }
+
+
 makingPairs();
+
+
+function points(timer, cards){
+  let time =  timer;
+  let validHits = hits - mistakes;
+  let hitPorcentual = validHits/cards * 100;
+  let total;
+
+  if (validHits < 0){
+    validHits = 0
+  }
+
+  if (timer = 0){
+    total = 0;
+  }
+
+  if (cards === 12){
+    total = hitPorcentual * time;
+  } else if (cards === 24){
+    total = hitPorcentual * (time * 2);
+  } else {
+    total = hitPorcentual * (time * 3);
+  }
+
+  if (total < 0){
+    total = 0;
+  }
+
+  return total;
+}
+
+points(30, 12);
