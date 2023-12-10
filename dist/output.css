@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -121,8 +121,10 @@ strong {
 }
 
 /*
-1. Use the user's configured `mono` font family by default.
-2. Correct the odd `em` font sizing in all browsers.
+1. Use the user's configured `mono` font-family by default.
+2. Use the user's configured `mono` font-feature-settings by default.
+3. Use the user's configured `mono` font-variation-settings by default.
+4. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
@@ -131,8 +133,12 @@ samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
-  font-size: 1em;
+  font-feature-settings: normal;
   /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
 }
 
 /*
@@ -853,32 +859,11 @@ video {
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.from-neutral-900 {
-  --tw-gradient-from: #171717 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(23 23 23 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-zinc-800 {
-  --tw-gradient-to: rgb(39 39 42 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #27272a var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-zinc-700 {
-  --tw-gradient-to: #3f3f46 var(--tw-gradient-to-position);
-}
-
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.p-2 {
-  padding: 0.5rem;
 .p-1 {
   padding: 0.25rem;
 }
@@ -1045,13 +1030,9 @@ video {
   transform: rotateY(180deg);
 }
 
-.element {
-  font-size: 1rem;
-  /* Ajuste o tamanho do texto conforme necessário */
-  line-height: 1.2rem;
-  /* Ajuste a altura da linha conforme necessário */
-  overflow: hidden;
-  /* Impede que o texto ultrapasse os limites do container */
+.element{
+  font-size: 0.50rem;
+  line-height: 0.60rem;
 }
 
 .container-card{
@@ -1073,6 +1054,29 @@ footer {
 
 #soundIcon:active, #musicIcon:active, #instructionsIcon:active {
   transform: translateY(1px);
+}
+
+/* Footer */
+
+footer {
+  background-color: #000;
+}
+
+#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
+  transform: translateY(1px);
+}
+
+/* Estilo radiobuttons selección de número de cartas y tema */
+
+input[type="radio"]:checked + label {
+  border: 1px solid #000000;
+  background-color: rgb(182 182 182 / 0.9);
+  color: white;
 }
 
 .hover\:-translate-y-1:hover {
@@ -1170,12 +1174,6 @@ footer {
     font-size: 1rem;
     line-height: 1.5rem;
   }
-
-  .md\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
 }
 
 @media (min-width: 1024px) {
@@ -1207,4 +1205,3 @@ footer {
     line-height: 1;
   }
 }
-
