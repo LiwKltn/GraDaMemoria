@@ -5,25 +5,17 @@
 @import url('https://img.freepik.com/free-photo/3d-rendering-optical-illusion_23-2150854149.jpg?w=740&t=st=1702051950~exp=1702052550~hmac=3efef74efb1008d874039b2e42742c44d824c70af120fd7d428e7bd6a06a36b7');
 
 .flip-card{
-  width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
-  margin: 5px;
-  position: relative;
-  transform: scale(1);
+  transition: transform 1s;
   transform-style: preserve-3d;
-  transition: transform .5s;
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
 }
 
-.flip-card:hover .flip-card {
-    transform: rotateY(180deg);
-  }
-  
   .flip-card-front, .flip-card-back {
-    -webkit-backface-visibility: hidden; /* Safari */
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-  
-  /* Style the back side */
+ 
   .flip-card-back {
     transform: rotateY(180deg);
   }
@@ -37,9 +29,16 @@
   box-sizing: border-box;
 }
 
-
 .disappear{
   visibility: hidden;
+}
+
+.container-card {
+  padding: 5px; 
+}
+
+.element {
+  padding: 5px; 
 }
 
 footer {
@@ -74,4 +73,5 @@ input[type="radio"]:checked + label {
   border: 1px solid #000000;
   background-color: rgb(182 182 182 / 0.9);
   color: white;
+
 }

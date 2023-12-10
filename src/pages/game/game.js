@@ -1,5 +1,7 @@
 let contentCard = document.getElementById("content-cards");
 let generatedIds = new Map();
+let numberOfPairs = localStorage.getItem("gameNumPairs");
+let gameTheme = localStorage.getItem("gameTheme");
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -22,7 +24,6 @@ function printElement(data, i) {
   );
  
   elementArray.textContent = data.elements[i].element;
-  67a2b72708e344402014a50b068283d87a8ada10
   return elementArray;
   
 }
@@ -31,8 +32,9 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element flex flex-wrap p-1 font-mono text-xs md:text-base italic text-center font-bold"
-  );
+    "element flex font-mono text-xs md:text-xs italic text-center font-bold p-2"
+);
+
   explanationArray.textContent = data.elements[i].explanation;
   return explanationArray;
   
@@ -56,12 +58,12 @@ function printCard(data, id) {
 
   newCard.setAttribute(
     "class",
-    "flip-card-back flex absolute inset-0 rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
+    "flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
 
   newCardPair.setAttribute(
-    "class","flip-card-back flex absolute inset-0 rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
+    "class","flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
 
-  cardImage.setAttribute("class", "flip-card-front rounded-xl absolute inset-0 object-cover shadow-xl cursor-pointer w-full h-full");
+  cardImage.setAttribute("class", "flip-card-front  inset-0 rounded-xl absolute  object-cover shadow-xl cursor-pointer w-full h-full");
 
   newCard.classList.add("card");
   newCardPair.classList.add("pair");
@@ -158,132 +160,98 @@ function getRandomId(theme) {
 }
 
 async function init() {
-  await generateCards("htfgml", 12);
+  await generateCards("htfgml", 30);
   shuffleCards();
 }
 init();
 
 let hits = 0;
 let mistakes = 0;
-function makingPairs() { 
+
+
+function makingPairs() {
+  let isBusy = false; 
+
   let firstCard = null;
-  let secondCard; 
+  let secondCard;
   let firstContainer;
   let secondContainer;
 
   contentCard.addEventListener("click", (event) => {
+    if (isBusy) {
+      return;
+    }
+
     let clickedContainer = event.target.closest(".container-card");
-    let clickedCard = clickedContainer ? clickedContainer.querySelector("article") : null;
-  
-    if (clickedContainer) {
+    let clickedCard = clickedContainer.querySelector("article");
+
+    if (clickedContainer && !clickedContainer.classList.contains("disappear")) {
       clickedContainer.classList.add("flip-card");
-      
+
       if (firstCard === null) {
-        // Se cardId for null, é a primeira carta virada
         firstCard = clickedCard;
         firstContainer = clickedContainer;
-  
-        return;
       } else {
+        isBusy = true;  
         secondCard = clickedCard;
         secondContainer = clickedContainer;
-      }
 
-        // É a segunda carta virada, comparar com a primeira
         if (secondCard.id === firstCard.id) {
-          console.log(secondCard)
-          console.log(firstCard)
-
-          // console.log("Hit! Card ID:", cardId);
           hits++;
           setTimeout(() => {
-            firstContainer.classList.add("disappear");
-            secondContainer.classList.add("disappear");
-            firstCard.classList.add("disappear")
+            firstCard.classList.add("disappear");
             secondCard.classList.add("disappear");
-            return
-          }, 3000); // Ajuste o tempo conforme necessário
-          
+            resetCards();
+          }, 3000);
         } else {
-          // console.log("Mistake! Card ID:", clickedId);
           mistakes++;
           setTimeout(() => {
-            firstCard = null;
-            clickedContainer.classList.remove("flip-card");
-            secondCard = null;
-            firstContainer.classList.remove("flip-card")
-          }, 2000); 
-        }    
+            firstContainer.classList.remove("flip-card");
+            secondContainer.classList.remove("flip-card");
+            resetCards();
+          }, 2000);
+        }
       }
+    }
   });
-}
 
+  function resetCards() {
+    // Resetar as variáveis e permitir novos cliques
+    firstCard = null;
+    secondCard = null;
+    firstContainer = null;
+    secondContainer = null;
+    isBusy = false;
+  }
+}
 
 makingPairs();
 
 
-function points(timer, cards){
-  let time =  timer;
+function points(timer, cards) {
+  let time = timer;
   let validHits = hits - mistakes;
-  let hitPorcentual = validHits/cards * 100;
+  let hitPorcentual = validHits / cards * 100;
   let total;
 
-  if (validHits < 0){
-    validHits = 0
+  if (validHits < 0) {
+    validHits = 0;
   }
 
-  if (timer = 0){
+  if (timer === 0) {
     total = 0;
   }
 
-  if (cards === 12){
+  if (cards === 12) {
     total = hitPorcentual * time;
-  } else if (cards === 24){
+  } else if (cards === 24) {
     total = hitPorcentual * (time * 2);
   } else {
     total = hitPorcentual * (time * 3);
   }
 
-  if (total < 0){
-    total = 0;
-  }
-
   return total;
 }
-console.log(points(30, 12))
+
+console.log(points(30, 12));
 points(30, 12);
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const audio = document.getElementById('audioPlayer');
-  const soundIcon = document.getElementById('soundIcon');
-  const musicIcon = document.getElementById('musicIcon');
-  const instructionsIcon = document.getElementById('instructionsIcon'); 
-
-  soundIcon.addEventListener('click', toggleSound);
-  musicIcon.addEventListener('click', initiateMusic);
-  instructionsIcon.addEventListener('click', function() { 
-      window.location.href = '../../pages/instructions/instructions.html'; 
-  });
-
-  function toggleSound() {
-      audio.paused ? audio.play() : audio.pause();
-      updateIcons();
-  }
-
-  function initiateMusic() {
-      audio.play();
-      updateIcons();
-  }
-
-  function updateIcons() {
-      const soundIconImg = audio.paused ? '../../assets/img/sin-sonido.png' : '../../assets/img/sin-sonido.png';
-      const musicIconImg = audio.paused ? '../../assets/img/sin-musica.png' : '../../assets/img/sin-musica.png';
-
-      soundIcon.innerHTML = `<img src="${soundIconImg}" alt="icono de sonido" style="width: 30px; height: 30px;">`;
-      musicIcon.innerHTML = `<img src="${musicIconImg}" alt="icono de musica" style="width: 30px; height: 30px;">`;
-  }
-
-  updateIcons();
-});
-
