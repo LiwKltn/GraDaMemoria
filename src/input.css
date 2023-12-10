@@ -2,3 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.cdnfonts.com/css/minnie');
+@import url('https://img.freepik.com/free-photo/3d-rendering-optical-illusion_23-2150854149.jpg?w=740&t=st=1702051950~exp=1702052550~hmac=3efef74efb1008d874039b2e42742c44d824c70af120fd7d428e7bd6a06a36b7');
+
+
+.flip-card{
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  .element {
+    font-size: 1rem; /* Ajuste o tamanho do texto conforme necessário */
+    line-height: 1.2rem; /* Ajuste a altura da linha conforme necessário */
+    overflow: hidden; /* Impede que o texto ultrapasse os limites do container */
+    
+}
+
+.container-card{
+  box-sizing: border-box;
+}
+
+
+.disappear{
+  visibility: hidden;
+}
