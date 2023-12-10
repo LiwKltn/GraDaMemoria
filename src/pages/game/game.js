@@ -1,8 +1,5 @@
 let contentCard = document.getElementById("content-cards");
 let generatedIds = new Map();
-let clickedContainers = document.querySelectorAll(".container-card"); // Mova a declaração aqui
-// clickedContainers.forEach(card => card.addEventListener('click', makingPairs));
-
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -96,8 +93,6 @@ function printCard(data, id) {
 
   newCard.appendChild(elementTag);
   newCardPair.appendChild(elementExplanation);
-
-
 }
 
 function shuffleCards() {
@@ -139,8 +134,6 @@ function randomColor(){
 
 async function generateCards(theme, cards) {
   let halfOfCards = cards / 2;
-  let colorCard = randomColor();
-  console.log(colorCard);
 
   const data = await getData();
 
@@ -165,134 +158,79 @@ function getRandomId(theme) {
 }
 
 async function init() {
-  await generateCards("htfgml", 2);
+  await generateCards("htfgml", 4);
   shuffleCards();
 }
 init();
 
+// capture click
+// card content
+// save card content 1
+// keep open
+// another click
+// save the data in variable 2
+//  keep open
+// compare
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+
 
 function makingPairs() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+  let hits = 0;
+  let mistakes = 0;
+  let firstCard = null;
+  let secondCard; 
+  let firstContainer;
+  let secondContainer;
 
-  this.classList.add("flip-card");
+  contentCard.addEventListener("click", (event) => {
+    let clickedContainer = event.target.closest(".container-card");
+    let clickedCard = clickedContainer.querySelector("article");
 
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
-    return;
-  }
+    if (clickedContainer) {
+      clickedContainer.classList.add("flip-card");
+      
+      if (firstCard === null) {
+        // Se cardId for null, é a primeira carta virada
+        firstCard = clickedCard;
+        firstContainer = clickedContainer;
+        console.log(firstCard.id);
+        console.log(firstCard);
+        return
+        
+      } else {
+        secondCard = clickedCard;
+        secondContainer = clickedContainer;
+        console.log(secondCard)
+        console.log(secondCard.id)
+      }
 
-  secondCard = this;
-  hasFlippedCard = false;
+        // É a segunda carta virada, comparar com a primeira
+        if (secondCard.id === firstCard.id) {
+          console.log(secondCard);
+          console.log(firstCard);
+          // console.log("Hit! Card ID:", cardId);
+          hits++;
+          setTimeout(() => {
+            secondContainer.classList.add("correct");
+            firstContainer.classList.add("correct");
+            secondContainer.classList.add("disappear");
+            firstContainer.classList.add("disappear");
+          }, 3000); // Ajuste o tempo conforme necessário
+          
+        } else {
+          // console.log("Mistake! Card ID:", clickedId);
+          mistakes++;
+          setTimeout(() => {
+            clickedContainer.classList.add(".wrong");
+            firstContainer.classList.add(".wrong")
+            clickedContainer.classList.remove("flip-card");
+            firstContainer.classList.remove("flip-card")
+          }, 2000); // Ajuste o tempo conforme necessário
+        }
 
-  checkForMatch();
+        // Resetar cardId para null para a próxima jogada
+        firstCard = null;
+      }
+  });
 }
-
-function checkForMatch() {
-  let isMatch = firstCard.id === secondCard.id;
-
-  isMatch ? disableCards() : unflipCards();
-}
-
-function disableCards() {
-  firstCard.removeEventListener('click', makingPairs);
-  secondCard.removeEventListener('click', makingPairs);
-}
-
-function unflipCards() {
-  lockBoard = true;
-  setTimeout(() => {
-    firstCard.classList.remove("flip-card");
-    secondCard.classList.remove("flip-card");
-    lockBoard = false;
-  }, 1500); // Ajuste o tempo conforme necessário
-}
-
-clickedContainers.forEach(card => card.addEventListener('click', makingPairs));
-
-    
-   
-    
-//     const clicked = clickedContainer.querySelector("article");
-//     console.log(clicked)
-//     if (clickedContainer) {
-//       clickedContainer.classList.add("flip-card");
-    
-//       if (cardId === null) {
-//         cardId = clickedId;
-//       } else {
-//         if (clickedId === cardId) {
-
-//           hits++;
-//           // clickedContainer.setAttribute("class", "");
-
-//         } else {
-//           console.log("Mistake! Card ID:", clickedId);
-//           mistakes++;
-//           setTimeout(() => {
-//             clickedContainer.classList.remove("flip-card");
-//           }, 1000); // Ajuste o tempo conforme necessário
-//         }
-
-//         // Resetar cardId para null para a próxima jogada
-//         cardId = null;
-//       }
-//     }
-//   });
-// }
-
-// makingPairs();
-
-
-// let clickedContainer = document.querySelectorAll(".container-card");
-
-
-//  const clickedId = clickedContainer.querySelector("article").id;
-
-// const cards = document.querySelectorAll('.container-card');
-
-//   let hasFlippedCard = false;
-//   let firstCard, secondCard;
-
-//   function flipCard() {
-//     this.classList.add('flip-card');
-
-//     if (!hasFlippedCard) {
-//       hasFlippedCard = true;
-//       firstCard = this;
-//      return;
-//    }
-
-//    secondCard = this;
-//    hasFlippedCard = false;
-
-//    checkForMatch();
-//  }
-
-//  function checkForMatch() {
-//    if (firstCard.dataset.framework === secondCard.dataset.framework) {
-//      disableCards();
-//      return;
-//    }
-
-//    unflipCards();
-//  }
-
-//  function disableCards() {
-//    firstCard.removeEventListener('click', flipCard);
-//    secondCard.removeEventListener('click', flipCard);
-//  }
-
-//  function unflipCards() {
-//    setTimeout(() => {
-//      firstCard.classList.remove('flip-card');
-//      secondCard.classList.remove('flip-card');
-//    }, 1500);
-//  }
-
-//   cards.forEach(card => card.addEventListener('click', flipCard));
+makingPairs();
