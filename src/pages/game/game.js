@@ -20,11 +20,10 @@ function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element w-full h-full absolut font-Minnie text-xs md:text-xs flex justify-center items-center text-center"
+    "element w-full h-full font-Minnie text-xs md:text-base flex flex-wrap justify-center items-center text-center"
   );
  
   elementArray.textContent = data.elements[i].element;
-
   return elementArray;
   
 }
@@ -33,7 +32,7 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element flex font-mono absolut text-xs md:text-xs italic text-center font-bold p-2"
+    "element flex font-mono text-xs md:text-xs italic text-center font-bold p-2"
 );
 
   explanationArray.textContent = data.elements[i].explanation;
@@ -50,7 +49,7 @@ function printCard(data, id) {
   cardImage.src =
     "https://img.freepik.com/free-photo/3d-rendering-optical-illusion_23-2150854149.jpg?w=740&t=st=1702051950~exp=1702052550~hmac=3efef74efb1008d874039b2e42742c44d824c70af120fd7d428e7bd6a06a36b7";
 
-  containerNewCard.setAttribute("class",  "container-card relative m-2 h-28 md:h-28 w-16 md:w-24");
+  containerNewCard.setAttribute("class",  "container-card relative m-2 h-18 md:h-28 w-16 md:w-24");
 
   containerNewCardPair.setAttribute(
     "class",
@@ -169,8 +168,10 @@ init();
 let hits = 0;
 let mistakes = 0;
 
+
 function makingPairs() {
   let isBusy = false; 
+
   let firstCard = null;
   let secondCard;
   let firstContainer;

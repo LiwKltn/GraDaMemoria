@@ -738,6 +738,10 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -838,6 +842,19 @@ video {
 .bg-teal-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(45 212 191 / var(--tw-bg-opacity));
+
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+=======
+
 }
 
 .bg-white {
@@ -850,23 +867,13 @@ video {
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.from-neutral-900 {
-  --tw-gradient-from: #171717 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(23 23 23 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-zinc-800 {
-  --tw-gradient-to: rgb(39 39 42 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #27272a var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-zinc-700 {
-  --tw-gradient-to: #3f3f46 var(--tw-gradient-to-position);
+.p-1 {
+  padding: 0.25rem;
 }
 
 .object-cover {
@@ -1022,6 +1029,10 @@ video {
   transition: transform 0.5s;
 }
 
+.flip-card:hover .flip-card {
+  transform: rotateY(180deg);
+}
+
 .flip-card-front, .flip-card-back {
   backface-visibility: hidden;
 }
@@ -1044,6 +1055,42 @@ video {
 
 .element {
   padding: 5px;
+}
+
+footer {
+  background-color: #000;
+}
+
+#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
+  transform: translateY(1px);
+}
+
+/* Footer */
+
+footer {
+  background-color: #000;
+}
+
+#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+}
+
+#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
+  transform: translateY(1px);
+}
+
+/* Estilo radiobuttons selección de número de cartas y tema */
+
+input[type="radio"]:checked + label {
+  border: 1px solid #000000;
+  background-color: rgb(182 182 182 / 0.9);
+  color: white;
 }
 
 .hover\:-translate-y-1:hover {
@@ -1141,7 +1188,6 @@ video {
     font-size: 0.75rem;
     line-height: 1rem;
   }
-}
 
 @media (min-width: 1024px) {
   .lg\:h-16 {
