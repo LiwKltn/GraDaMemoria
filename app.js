@@ -17,4 +17,14 @@ function iniciarJuego() {
       }
     });
   });
-  
+  document.getElementById("nombreInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      iniciarJuego();
+    }
+  });
+
+  function iniciarJuego() {
+    var nombreJugador = document.getElementById('nombreInput').value;
+    alert('¡Juego iniciado por ' + nombreJugador + '!');
+  }
