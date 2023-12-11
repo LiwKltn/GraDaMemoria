@@ -165,7 +165,6 @@ function cardsDisplay(){
   }
 }
 
-
 async function init() {
   await generateCards(gameTheme, numberOfPairs);
   shuffleCards();
@@ -176,10 +175,8 @@ init();
 let hits = 0;
 let mistakes = 0;
 
-
 function makingPairs() {
   let isBusy = false; 
-
   let firstCard = null;
   let secondCard;
   let firstContainer;
@@ -233,7 +230,6 @@ function makingPairs() {
 }
 
 makingPairs();
-
 
 function points(timer, cards) {
   let time = timer;

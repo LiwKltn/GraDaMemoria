@@ -9,18 +9,19 @@
   <title>GraDaMemoria</title>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex flex-col items-center">
   <header class="h-1/6">
     <h1 class="flex font-Minnie text-slate-900 drop-shadow-lg font-Minnie justify-center items-center p-4">Gra Da
       Memoria</h1>
   </header>
 
-  <div class="welcomeLayout">
-    <h1 id="welcomeMessage" class="welcomeTypography font-Minnie text-center mb-2"></h1>
+  <div class="m-4">
+    <h1 id="welcomeMessage" class="welcomeTypography font-Minnie  text-center"></h1>
   </div>
-  <h2 class="font-Minnie flex justify-center">Elige el número de cartas</h2>
 
-  <ul class="flex justify-center m-10 max-w-md mx-auto">
+  <div class="m-4">
+    <h2 class="font-Minnie flex justify-center">Elige el número de cartas</h2>
+  <ul class="flex justify-center max-w-md mx-auto">
     <li class="relative m-4" style="margin-right: 15px;">
       <input class="sr-only peer" type="radio" value="12" name="answer" id="answer_12">
       <label
@@ -42,10 +43,12 @@
         for="answer_30">30</label>
     </li>
   </ul>
+</div>
 
+<div class="m-4">
   <h2 class="font-Minnie flex justify-center">Elige el tema</h2>
 
-  <ul class="flex justify-center m-10 max-w-md mx-auto">
+  <ul class="flex justify-center max-w-md mx-auto">
     <li class="relative m-4" style="margin-right: 15px;">
       <input class="sr-only peer" type="radio" value="HTML" name="answerTheme" id="answer_HTML">
       <label
@@ -67,9 +70,11 @@
         for="answer_JS">JS</label>
     </li>
   </ul>
+</div>
 
-  <div class="flex justify-center cursor-pointer"><button id="go-button"
-      class="w-24 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">GO!</button>
+  <div class="flex flex-col justify-center w-32">
+    <button id="go-button"class="w-24 my-4 p-3 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200">VAMOS!</button>
+    <button id="go-button"class="w-24 my-4 p-3 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200">VOLVER</button>
   </div>
 
   <audio id="audioPlayer" loop>
