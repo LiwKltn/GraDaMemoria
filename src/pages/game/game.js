@@ -2,10 +2,11 @@ let contentCard = document.getElementById("content-cards");
 let generatedIds = new Map();
 let cardsSelected = localStorage.getItem("gameNumPairs");
 let gameTheme = localStorage.getItem("gameTheme");
-let numberOfPairs = parseInt(cardsSelected, 10);
+let numberOfPairs = cardsSelected/2;
 let theme = document.getElementById("theme-name");
 theme.innerHTML = gameTheme;
 let returnButton = document.getElementById("return-button");
+let undoButton = document.getElementById("undo-button");
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -25,8 +26,14 @@ function printElement(data, i) {
     "class",
     "element w-full h-full font-Minnie text-xs md:text-xs flex justify-center items-center text-center"
   );
- 
+
+ try{
   elementArray.textContent = data.elements[i].element;
+ }
+  catch(ex){
+  console.log(ex);
+  }
+
   return elementArray;
   
 }
@@ -38,7 +45,13 @@ function printExplanation(data, i) {
     "element w-full h-full font-mono text-xs md:text-xs flex justify-center items-center text-center"
 );
 
+try{
   explanationArray.textContent = data.elements[i].explanation;
+ }
+  catch(ex){
+  console.log(ex);
+  }
+ 
   return explanationArray;
   
 }
@@ -111,21 +124,19 @@ function shuffleCards() {
     container.insertBefore(cards[randomIndex], cards[i]);
   }
 }
-
+//HTML DE 0 A 51
 function randomHtml() {
-  return Math.floor(Math.random() * 50);
+  return Math.floor(Math.random() * 51);
 }
 
+//CSS DE 51 A 89
 function randomCss() {
-  return Math.floor(Math.random() * 51) + 50;
+  return 51+Math.floor(Math.random() * 39); 
 }
 
+//JS DE 90 A 153
 function randomJs() {
-  return Math.floor(Math.random() * 69) + 100;
-}
-
-function randomAllThemes() {
-  return Math.floor(Math.random() * 168);
+  return 90+Math.floor(Math.random() * 64);
 }
 
 function randomColor(){

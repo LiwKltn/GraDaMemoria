@@ -29,7 +29,7 @@ let ranking = {
 
         // Ordenar la lista de puntuaciones por puntos de forma descendente
         highRankings.sort((a, b) => b.points - a.points);
-
+        highRankings = highRankings.slice(0,3);  
         // Almacenar la lista actualizada en localStorage
         localStorage.setItem('highRankings', JSON.stringify(highRankings));
       }

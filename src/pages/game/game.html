@@ -37,14 +37,16 @@
 
         <section id="content-cards" class="grid grid-cols-3
         m-4 justify-center items-center md:grid-cols-8"></section>
+<section class="flex justify-center ">
+    <div class="flex flex-col" id="container-buttons">
+        <button id="return-button" class="p-2 mb-3 transition rounded  font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200">VOLVER</button>
+    </div>
 
-        <div class="flex flex-col m-4">
-            <button id="return-button" class="p-2 mb-3 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200">VOLVER</button>
-            <button id="return-button" class="p-2 mb-3 rounded font-Minnie transition ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">REINCIAR</button>
-        </div>
+</section>
+       
     </div>
     </main>
-    <footer  class="fixed bottom-0 bg-black right-0 left-0 p-4 text-white flex max-h-11 justify-between md:flex-row md:items-center">
+    <footer  class="fixed bottom-0 bg-black right-0 left-0 p-4 text-white flex max-h-12 justify-between md:flex-row md:items-center">
         <div class="flex items-center justify-center">
             <div id="soundIcon" class="cursor-pointer">
                 <img src="../../assets/img/sin-musica.png" alt="icono de sonido" style="width: 30px; height: 30px;">
@@ -61,6 +63,7 @@
 
     <script src="game.js"></script>
     <script src="/sounds.js"></script>
+    <script src="/ranking.js"></script>
 
 </body>
 
