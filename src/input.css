@@ -16,6 +16,8 @@
     backface-visibility: hidden;
   }
  
+  
+  /* Style the back side */
   .flip-card-back {
     transform: rotateY(180deg);
   }
@@ -74,4 +76,10 @@ input[type="radio"]:checked + label {
   background-color: rgb(182 182 182 / 0.9);
   color: white;
 
+}
+
+/* Ranking */
+.listBulletType {
+  margin-left: 25px;
+  list-style-type: auto;
 }
