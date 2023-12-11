@@ -1,14 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../src/input.css">
-    <link href="../../../dist/output.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../../src/input.css">
+  <link href="../../../dist/output.css" rel="stylesheet">
+  <title>GraDaMemoria</title>
 </head>
-<body  class="h-screen bg-gradient-to-b from-neutral-900 via-zinc-800 to-zinc-700">
-    <header>
-        <h1 class="p-5 text-stone-200 text-3xl text-center drop-shadow-lg font-Minnie">Gra Da Memoria</h1>
-    </header>
+
+<body class="bg-gray-100">
+  <header class="h-1/6">
+    <h1 class="flex font-Minnie text-slate-900 drop-shadow-lg font-Minnie justify-center items-center p-4">Gra Da
+      Memoria</h1>
+  </header>
+
+  <div class="welcomeLayout">
+    <h1 id="welcomeMessage" class="welcomeTypography font-Minnie text-center mb-2"></h1>
+  </div>
+  <h2 class="font-Minnie flex justify-center">Elige el número de cartas</h2>
+
+  <ul class="flex justify-center m-10 max-w-md mx-auto">
+    <li class="relative m-4" style="margin-right: 15px;">
+      <input class="sr-only peer" type="radio" value="12" name="answer" id="answer_12">
+      <label
+        class="w-24 py-2 px-3 my-4 cursor-pointer transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200 peer-checked:ring-green-500"
+        for="answer_12">12</label>
+    </li>
+
+    <li class="relative m-4" style="margin-right: 15px;">
+      <input class="sr-only peer" type="radio" value="24" name="answer" id="answer_24">
+      <label
+        class="w-24 py-2 px-3 my-4 cursor-pointer transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200 pointer"
+        for="answer_24">24</label>
+    </li>
+
+    <li class="relative m-4">
+      <input class="sr-only peer" type="radio" value="30" name="answer" id="answer_30">
+      <label
+        class="w-24 py-2 px-3 my-4 cursor-pointer transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200"
+        for="answer_30">30</label>
+    </li>
+  </ul>
+
+  <h2 class="font-Minnie flex justify-center">Elige el tema</h2>
+
+  <ul class="flex justify-center m-10 max-w-md mx-auto">
+    <li class="relative m-4" style="margin-right: 15px;">
+      <input class="sr-only peer" type="radio" value="HTML" name="answerTheme" id="answer_HTML">
+      <label
+        class="w-24 py-2 px-3 my-4 cursor-pointer transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200"
+        for="answer_HTML">HTML</label>
+    </li>
+
+    <li class="relative m-4" style="margin-right: 15px;">
+      <input class="sr-only peer" type="radio" value="CSS" name="answerTheme" id="answer_CSS">
+      <label
+        class="w-24 py-2 px-3 my-4  cursor-pointer transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200"
+        for="answer_CSS">CSS</label>
+    </li>
+
+    <li class="relative m-4">
+      <input class="sr-only peer" type="radio" value="JS" name="answerTheme" id="answer_JS">
+      <label
+        class="w-24 py-2 px-3 my-4 cursor-pointer transition ease-in-out delay-150 bg-stone-900 font-Minnie text-stone-200 rounded hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200"
+        for="answer_JS">JS</label>
+    </li>
+  </ul>
+
+  <div class="flex justify-center cursor-pointer"><button id="go-button"
+      class="w-24 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">GO!</button>
+  </div>
+
+  <audio id="audioPlayer" loop>
+    <source src="../../assets/sounds/musicRelax.mp3" type="audio/mp3">
+    Tu navegador no soporta la etiqueta de audio.
+  </audio>
+
+  <footer
+    class="fixed bottom-0 bg-black right-0 left-0 p-4 text-white flex flex-col items-end md:flex-row md:items-center"
+    style="max-height: 3rem;">
+    <div id="soundIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2">
+      <img src="../../assets/img/sin-musica.png" alt="icono de sonido" style="width: 30px; height: 30px;">
+    </div>
+    <div id="musicIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2">
+      <img src="../../assets/img/sin-sonido.png" alt="icono de musica" style="width: 30px; height: 30px;">
+    </div>
+    <div id="instructionsIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2 md:ml-4">
+      <img src="../../assets/img/libro-electronico.png" alt="icono de instruciones" style="width: 30px; height: 30px;">
+    </div>
+    <div class="text-sm md:ml-auto">Copyright © 2023 GraDaMemoria</div>
+  </footer>
+
+  <script src="./config.js"></script>
+  <script src="/sounds.js"></script>
 </body>
+
 </html>
