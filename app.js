@@ -6,11 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const randomX = Math.random() * (window.innerWidth - card.clientWidth);
         const randomY = Math.random() * (window.innerHeight - card.clientHeight);
   
-        // Ajusta la separación multiplicando las coordenadas aleatorias por un factor
-        const separationFactor = 1.5; // Puedes ajustar este valor según tus necesidades
+        
+        const separationFactor = 1.5; 
   
-        // Ajusta las coordenadas para que las cards se mantengan dentro de los límites visibles
-        const maxX = window.innerWidth - card.clientWidth * separationFactor;
+        
         const maxY = window.innerHeight - card.clientHeight * separationFactor;
   
         const adjustedX = Math.min(randomX, maxX);
