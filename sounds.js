@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateIcons() {
-        const soundIconImg = audio.paused ? 'img/sin-sonido.png' : 'img/sin-sonido.png';
-        const musicIconImg = audio.paused ? 'img/sin-musica.png' : 'img/sin-musica.png';
+        const soundIconImg = audio.paused ? '/src/assets/img/sin-sonido.png' : '/src/assets/img/sin-sonido.png';
+        const musicIconImg = audio.paused ? '/src/assets/img/sin-musica.png' : '/src/assets/img/sin-musica.png';
 
         soundIcon.innerHTML = `<img src="${soundIconImg}" alt="icono de sonido" style="width: 30px; height: 30px;">`;
         musicIcon.innerHTML = `<img src="${musicIconImg}" alt="icono de musica" style="width: 30px; height: 30px;">`;
