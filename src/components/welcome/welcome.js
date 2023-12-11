@@ -1,4 +1,4 @@
-let game = {
+let welcomeMessage = {
     setUserName: function(userName) {
         this.userFullName = userName;
         document.getElementById("welcomeMessage").innerHTML= `Hola ${userName}`;

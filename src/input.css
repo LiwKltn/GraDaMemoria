@@ -70,7 +70,6 @@ footer {
   transform: translateY(1px);
 }
 
-/* Estilo radiobuttons selección de número de cartas y tema */
 input[type="radio"]:checked + label {
   border: 1px solid #000000;
   background-color: rgb(182 182 182 / 0.9);
@@ -78,8 +77,25 @@ input[type="radio"]:checked + label {
 
 }
 
-/* Ranking */
 .listBulletType {
   margin-left: 25px;
   list-style-type: auto;
+}
+
+.welcomeLayout{
+  width: 247px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.welcomeTypography {
+  color: white;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1.5px black;
+  font-family: Minnie;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 44px; /* 110% */
 }

@@ -1,7 +1,8 @@
 let contentCard = document.getElementById("content-cards");
 let generatedIds = new Map();
-let numberOfPairs = localStorage.getItem("gameNumPairs");
+let cardsSelected = localStorage.getItem("gameNumPairs");
 let gameTheme = localStorage.getItem("gameTheme");
+let numberOfPairs = cardsSelected/2;
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -14,7 +15,6 @@ async function getData() {
   }
   return data;
 }
-
 
 function printElement(data, i) {
   let elementArray = document.createElement("h2");
@@ -32,7 +32,7 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element flex font-mono text-xs md:text-xs italic text-center font-bold p-2"
+    "element flex font-mono text-xs md:text-sm italic text-center font-bold p-2"
 );
 
   explanationArray.textContent = data.elements[i].explanation;
@@ -47,7 +47,7 @@ function printCard(data, id) {
   let newCardPair = document.createElement("article");
   let cardImage = document.createElement("img");
   cardImage.src =
-    "https://img.freepik.com/free-photo/3d-rendering-optical-illusion_23-2150854149.jpg?w=740&t=st=1702051950~exp=1702052550~hmac=3efef74efb1008d874039b2e42742c44d824c70af120fd7d428e7bd6a06a36b7";
+    "../../assets/img/card-image.png";
 
   containerNewCard.setAttribute("class",  "container-card relative m-2 h-18 md:h-28 w-16 md:w-24");
 
@@ -63,7 +63,7 @@ function printCard(data, id) {
   newCardPair.setAttribute(
     "class","flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
 
-  cardImage.setAttribute("class", "flip-card-front  inset-0 rounded-xl absolute  object-cover shadow-xl cursor-pointer w-full h-full");
+  cardImage.setAttribute("class", "flip-card-front  inset-0 rounded-xl absolute object-cover cursor-pointer w-full h-full");
 
   newCard.classList.add("card");
   newCardPair.classList.add("pair");
@@ -98,13 +98,11 @@ function printCard(data, id) {
 }
 
 function shuffleCards() {
-  // Get the container for cards
   let container = document.getElementById("content-cards");
 
-  // Get all cards and their pairs
   let cards = document.querySelectorAll(".container-card");
 
-  // Shuffle the cards in place using the Fisher–Yates shuffle algorithm
+
   for (let i = cards.length - 1; i > 0; i--) {
     let randomIndex = Math.floor(Math.random() * (i + 1));
     container.insertBefore(cards[randomIndex], cards[i]);
@@ -135,17 +133,15 @@ function randomColor(){
 
 
 async function generateCards(theme, cards) {
-  let halfOfCards = cards / 2;
-
   const data = await getData();
 
-  for (let i = 0; i < halfOfCards; i++) {
+  for (let i = 0; i < cards; i++) {
     let newId;
     do {
       newId = getRandomId(theme);
     } while (generatedIds.has(newId));
 
-    const index = generatedIds.size; // Obter o próximo índice no array
+    const index = generatedIds.size; 
 
     generatedIds.set(newId, index);
     printCard(data, newId);
@@ -153,15 +149,27 @@ async function generateCards(theme, cards) {
 }
 
 function getRandomId(theme) {
-  if (theme === "html") return randomHtml();
-  if (theme === "css") return randomCss();
-  if (theme === "javascript") return randomJs();
+  if (theme === "HTML") return randomHtml();
+  if (theme === "CSS") return randomCss();
+  if (theme === "JS") return randomJs();
   return randomAllThemes();
 }
 
+function cardsDisplay(){
+  if (numberOfPairs === 6){
+    contentCard.setAttribute("class", "grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 justify-center items-center");
+  } else if (numberOfPairs === 12){
+    contentCard.setAttribute("class", "grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 justify-center items-center");
+  } else {
+    contentCard.setAttribute("class", "grid grid-cols-3 md:grid-cols-6 lg:grid-cols-10 justify-center items-center");
+  }
+}
+
+
 async function init() {
-  await generateCards("htfgml", 30);
+  await generateCards(gameTheme, numberOfPairs);
   shuffleCards();
+  cardsDisplay();
 }
 init();
 
@@ -216,7 +224,6 @@ function makingPairs() {
   });
 
   function resetCards() {
-    // Resetar as variáveis e permitir novos cliques
     firstCard = null;
     secondCard = null;
     firstContainer = null;
@@ -253,5 +260,120 @@ function points(timer, cards) {
   return total;
 }
 
-console.log(points(30, 12));
+
 points(30, 12);
+
+radioButtons = document.querySelectorAll("input[name='answer']");
+radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', function() {
+        game.setNumPairs(this.value);
+    });
+});
+
+radioButtons = document.querySelectorAll("input[name='answerTheme']");
+radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', function() {
+        game.setTheme(this.value);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const audio = document.getElementById('audioPlayer');
+  const soundIcon = document.getElementById('soundIcon');
+  const musicIcon = document.getElementById('musicIcon');
+  const instructionsIcon = document.getElementById('instructionsIcon'); 
+
+  soundIcon.addEventListener('click', toggleSound);
+  musicIcon.addEventListener('click', initiateMusic);
+  instructionsIcon.addEventListener('click', function() { 
+      window.location.href = '../../pages/instructions/instructions.html'; 
+  });
+
+  function toggleSound() {
+      audio.paused ? audio.play() : audio.pause();
+      updateIcons();
+  }
+
+  function initiateMusic() {
+      audio.play();
+      updateIcons();
+  }
+
+  function updateIcons() {
+      const soundIconImg = audio.paused ? 'img/sin-sonido.png' : 'img/sin-sonido.png';
+      const musicIconImg = audio.paused ? 'img/sin-musica.png' : 'img/sin-musica.png';
+
+      soundIcon.innerHTML = `<img src="${soundIconImg}" alt="icono de sonido" style="width: 30px; height: 30px;">`;
+      musicIcon.innerHTML = `<img src="${musicIconImg}" alt="icono de musica" style="width: 30px; height: 30px;">`;
+  }
+
+  updateIcons();
+});
+
+let game = {
+  config:{
+      remainTime:5*60 //5min de juego = 5x60seg
+  },
+  util: {
+      getHHMMSSFromSeconds: function(seconds, renderHours){
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+
+    const timeFormat = [];
+          if(renderHours)
+              timeFormat.push(String(hours).padStart(2, '0'));
+          timeFormat.push(String(minutes).padStart(2, '0'));
+          timeFormat.push(String(remainingSeconds).padStart(2, '0'));
+
+    return timeFormat.join(':');
+      }
+  },
+  remainingTime: 0,
+  setRemainingTime: function(){
+      this.remainingTime = this.config.remainTime;
+  },
+  intervalId: null,
+  
+  startCountdown: function(){
+      document.getElementById("countDown").classList.remove("criticalTime")
+      this.setRemainingTime();
+      let _this = this;
+      this.intervalId = setInterval(() => {
+          _this.remainingTime--;
+          if (_this.remainingTime===0)
+              _this.clearPlayedGameInterval();
+          else if(_this.remainingTime <= 5){
+              //Añadir efecto crítico te quedas sin tiempo y vas a perder.
+              document.getElementById("countDown").setAttribute("class", "criticalTime")
+          }
+          //En todos los casos debemos renderizar el tiempo de juego restante
+          _this.renderRemainingTime();
+
+      },1000);
+  },
+
+  clearPlayedGameInterval: function(){
+      clearInterval(this.intervalId)
+  },
+  
+  getFormatedElapsedTime: function(){
+
+  },
+  renderRemainingTime: function(){
+      let result = game.util.getHHMMSSFromSeconds(this.remainingTime);
+      document.getElementById("countDown").innerHTML = result;
+      
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    let returnButton = document.getElementById('return-button');
+
+    returnButton.addEventListener('click', function () {
+        
+        window.location.href = '../../pages/config/config.html';
+    });
+});
+
+
