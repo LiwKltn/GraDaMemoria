@@ -1,5 +1,4 @@
-<link href="https://fonts.cdnfonts.com/css/minnie" rel="stylesheet">
-<img src="gradamemoria.jfif">
+<img src="./Readme/GRADAME.png">
 
 <h1>⚙️ Guía de uso ⚙️</h1>
 <p>Este proyecto es un juego de parejas de cartas interactivo. El objetivo del juego es encontrar todas las parejas de cartas en el menor tiempo posible.</p>

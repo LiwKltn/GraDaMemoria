@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     newGameButton.addEventListener('click', function () {
         
-        window.location.href = '/pages/config/config.html';
+        window.location.href = '../config/config.html';
     });
 });
 
@@ -26,6 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     newGameButton.addEventListener('click', function () {
         
-        window.location.href = '/pages/game/game.html';
+        window.location.href = '../game/game.html';
     });
 });
