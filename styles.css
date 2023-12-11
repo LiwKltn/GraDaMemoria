@@ -1,96 +1,214 @@
 body {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-  }
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
+    background-color: #f0f0f0;
   }
   
   .card {
-    border: 2px solid #000;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    margin: 10px; /* Espaciado entre tarjetas */
+    perspective: 1000px;
+    animation: rotateCard 5s linear infinite;
     
   }
-  
-  .word {
-    display: block; /* Cada palabra en una línea nueva */
-    font-size: 30px;
-    margin-bottom: 10px; /* Espaciado entre palabras */
-  }
-  
   .center-card {
-    transform: translate(-50%, -50%); /* Mantener la tarjeta "Gra Da Memoria" en el centro */
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+   
+  }
+  .word {
+    display: block; 
+    font-size: 50px;
+    margin-bottom: 10px; 
   }
   
-  .image-card {
-    background-image: url('./img/Logo.png'); /* Ruta de la imagen que quieres mostrar */
-    background-size: cover;
-    background-position: center;
-    color: transparent; /* Oculta el texto cuando se muestra la imagen */
+  .card-inner {
+    width: 250px;
+    height: 250px;
+    transform-style: preserve-3d;
+    animation: rotateInner 5s linear infinite;
   }
   
-  .rotate {
-    animation: rotateCard 5s infinite linear; /* Animación de rotación constante para tarjetas adicionales */
-  }
-  
-  .additional-text {
-    font-size: 18px;
-    color: #fff; /* Color del texto, ajusta según sea necesario */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .flip-card {
-    position: relative;
-    perspective: 1000px; /* Agregamos perspectiva para el efecto 3D */
-  }
-  
-  .front-content,
-  .back-content {
-    position: absolute;
+  .card-front,
+  .card-back, .card-front-2, .card-front-3 , .card-front-4 , .card-front-5 , .card-front-6 , .card-front-7 , .card-front-8 , .card-front-9 , .card-front-10 , .card-front-11 , .card-front-12 , .card-front-13 , .card-front-14 , .card-front-15 {
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Ocultamos la cara posterior */
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 25px;
   }
   
-  .front-content {
-    transform: rotateY(0deg);
+  .card-front {
+    background-color: #00ff15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black;
+  }
+ 
+  .card-front-2 {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-3 {
+    background-color: rgb(174, 0, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-4 {
+    background-color: rgb(255, 0, 170);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-5 {
+    background-color: rgb(0, 17, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-6 {
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-7 {
+    background-color: rgb(255, 251, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-8 {
+    background-color: rgb(25, 0, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-9 {
+    background-color: rgb(217, 255, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-10 {
+    background-color: rgb(255, 0, 128);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-11 {
+    background-color: rgb(0, 17, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-12 {
+    background-color: rgb(162, 0, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-13 {
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-14 {
+    background-color: rgb(0, 255, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-15 {
+    background-color: rgb(0, 110, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .back-content {
-    transform: rotateY(180deg); /* Inicialmente girada 180 grados */
-  }
-  
-  .flip-card:hover .front-content {
-    transform: rotateY(-180deg); /* Al pasar el ratón, giramos la cara frontal */
-  }
-  
-  .flip-card:hover .back-content {
-    transform: rotateY(0deg); /* Al pasar el ratón, mostramos la cara posterior */
+  .card-back img {
+    max-width: 100%;
+    max-height: 100%;
   }
   
   @keyframes rotateCard {
+    from {
+      transform: rotateY(0deg);
+    }
     to {
-      transform: rotateY(360deg); /* Rotación completa en sentido horario */
+      transform: rotateY(360deg);
     }
   }
   
+  @keyframes rotateInner {
+    0%, 100% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+  }
   
