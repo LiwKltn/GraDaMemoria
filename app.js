@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const separationFactor = 1.5; 
   
         
+        const maxX = window.innerWidth - card.clientWidth * separationFactor;
         const maxY = window.innerHeight - card.clientHeight * separationFactor;
   
         const adjustedX = Math.min(randomX, maxX);
