@@ -2,7 +2,9 @@ let contentCard = document.getElementById("content-cards");
 let generatedIds = new Map();
 let cardsSelected = localStorage.getItem("gameNumPairs");
 let gameTheme = localStorage.getItem("gameTheme");
-let numberOfPairs = cardsSelected/2;
+let numberOfPairs = parseInt(cardsSelected, 10);
+let theme = document.getElementById("theme-name");
+theme.innerHTML = gameTheme;
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -133,6 +135,7 @@ function randomColor(){
 
 
 async function generateCards(theme, cards) {
+  console.log("Número de cartas:", cards);
   const data = await getData();
 
   for (let i = 0; i < cards; i++) {
@@ -141,11 +144,14 @@ async function generateCards(theme, cards) {
       newId = getRandomId(theme);
     } while (generatedIds.has(newId));
 
-    const index = generatedIds.size; 
+    const index = generatedIds.size;
 
     generatedIds.set(newId, index);
     printCard(data, newId);
   }
+
+  shuffleCards();
+  cardsDisplay(); 
 }
 
 function getRandomId(theme) {
@@ -167,8 +173,6 @@ function cardsDisplay(){
 
 async function init() {
   await generateCards(gameTheme, numberOfPairs);
-  shuffleCards();
-  cardsDisplay();
 }
 init();
 

@@ -2,3 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.cdnfonts.com/css/minnie');
+
+.flip-card{
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+  .flip-card-front, .flip-card-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+ 
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+.container-card{
+  box-sizing: border-box;
+}
+
+.disappear{
+  visibility: hidden;
+}
+
+.container-card {
+  padding: 5px; 
+}
+
+.element {
+  padding: 5px; 
+}
