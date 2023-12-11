@@ -1,22 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll('.card');
+    const separationFactor = -0.20; 
   
     cards.forEach((card, index) => {
       if (index !== 0) {
-        const randomX = Math.random() * (window.innerWidth - card.clientWidth);
-        const randomY = Math.random() * (window.innerHeight - card.clientHeight);
+        const maxX = window.innerWidth - card.clientWidth;
+        const maxY = window.innerHeight - card.clientHeight;
   
-        
-        const separationFactor = 1.5; 
+        const adjustedX = Math.random() * (maxX - card.clientWidth * separationFactor);
+        const adjustedY = Math.random() * (maxY - card.clientHeight * separationFactor);
   
-        
-        const maxX = window.innerWidth - card.clientWidth * separationFactor;
-        const maxY = window.innerHeight - card.clientHeight * separationFactor;
-  
-        const adjustedX = Math.min(randomX, maxX);
-        const adjustedY = Math.min(randomY, maxY);
-  
-        card.style.position = 'absolute';
+        card.style.position = 'fixed';
         card.style.left = `${adjustedX}px`;
         card.style.top = `${adjustedY}px`;
       }
@@ -30,9 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
-  function iniciarJuego() {
-    var nombreJugador = document.getElementById('nombreInput').value;
-    alert('¡Juego iniciado por ' + nombreJugador + '!');
+
+document.getElementById("nombreInput").addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    window.location.href = './src/pages/config/config.html';
   }
+});
   
- 
