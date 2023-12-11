@@ -1,7 +1,8 @@
 let game = {
     setUserName: function(userName) {
         this.userFullName = userName;
-        document.getElementById("welcomeMessage").innerHTML= `Hola ${userName}`;
+        console.log(userName);
+        document.getElementById("welcomeMessage").innerHTML= `Bienvenido/a ${userName}`;
         localStorage.setItem("gameUserName", userName);
     },
     
