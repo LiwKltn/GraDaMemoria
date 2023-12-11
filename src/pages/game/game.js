@@ -5,6 +5,7 @@ let gameTheme = localStorage.getItem("gameTheme");
 let numberOfPairs = parseInt(cardsSelected, 10);
 let theme = document.getElementById("theme-name");
 theme.innerHTML = gameTheme;
+let returnButton = document.getElementById("return-button");
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -343,6 +344,8 @@ function updateTimer(milliseconds) {
   document.querySelector('.millisecond').innerText = millisecond.toString().padStart(3, '0');
 }
 
-function redirectToGameOver() {
-  window.location.href = 'aquí poner página gameover';
-}
+
+returnButton.addEventListener('click', function () {
+  window.location.href = '../config/config.html';
+});
+
