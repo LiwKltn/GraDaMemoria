@@ -228,7 +228,6 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
-  appearance: button;
   /* 1 */
   background-color: transparent;
   /* 2 */
@@ -276,7 +275,6 @@ Correct the cursor style of increment and decrement buttons in Safari.
 
 [type='search'] {
   -webkit-appearance: textfield;
-  appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
@@ -416,6 +414,7 @@ embed,
 object {
   display: block;
   /* 1 */
+  vertical-align: middle;
   /* 2 */
 }
 
@@ -659,6 +658,10 @@ video {
   display: none;
 }
 
+.h-1\/6 {
+  height: 16.666667%;
+}
+
 .h-28 {
   height: 7rem;
 }
@@ -673,6 +676,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.max-h-11 {
+  max-height: 2.75rem;
 }
 
 .min-h-screen {
@@ -734,6 +741,10 @@ video {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -758,8 +769,8 @@ video {
   justify-content: center;
 }
 
-.justify-items-center {
-  justify-items: center;
+.justify-between {
+  justify-content: space-between;
 }
 
 .gap-4 {
@@ -905,33 +916,23 @@ video {
 }
 
 .text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.563rem;
 }
 
 .text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1.953rem;
 }
 
 .text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 2.441rem;
 }
 
 .text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 0.6rem;
 }
 
 .text-xl {
   font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
 }
 
 .font-bold {
@@ -1010,6 +1011,8 @@ video {
   backface-visibility: hidden;
 }
 
+/* Style the back side */
+
 .flip-card-back {
   transform: rotateY(180deg);
 }
@@ -1063,12 +1066,34 @@ footer {
   transform: translateY(1px);
 }
 
-/* Estilo radiobuttons selección de número de cartas y tema */
-
 input[type="radio"]:checked + label {
   border: 1px solid #000000;
   background-color: rgb(182 182 182 / 0.9);
   color: white;
+}
+
+.listBulletType {
+  margin-left: 25px;
+  list-style-type: auto;
+}
+
+.welcomeLayout{
+  width: 247px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.welcomeTypography {
+  color: white;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1.5px black;
+  font-family: Minnie;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 44px;
+  /* 110% */
 }
 
 .hover\:-translate-y-1:hover {
@@ -1107,8 +1132,7 @@ input[type="radio"]:checked + label {
   }
 
   .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
+    font-size: 3.052rem;
   }
 }
 
@@ -1145,8 +1169,16 @@ input[type="radio"]:checked + label {
     width: 6rem;
   }
 
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .md\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 
   .md\:flex-row {
@@ -1157,19 +1189,12 @@ input[type="radio"]:checked + label {
     align-items: center;
   }
 
-  .md\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
   .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 0.75rem;
   }
 
-  .md\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
+  .md\:text-sm {
+    font-size: 0.6rem;
   }
 }
 
@@ -1182,9 +1207,16 @@ input[type="radio"]:checked + label {
     width: 4rem;
   }
 
-  .lg\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
+  .lg\:grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
 
@@ -1195,10 +1227,5 @@ input[type="radio"]:checked + label {
 
   .xl\:w-20 {
     width: 5rem;
-  }
-
-  .xl\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
   }
 }

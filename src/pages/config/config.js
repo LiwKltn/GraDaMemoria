@@ -8,6 +8,16 @@ let game = {
     getUserName: function(){
         return localStorage.getItem("gameUserName");
     },
+
+    setUserName: function(userName) {
+        this.userFullName = userName;
+        document.getElementById("welcomeMessage").innerHTML= `Hola ${userName}`;
+        localStorage.setItem("gameUserName", userName);
+    },
+    
+    getUserName: function(){
+        return localStorage.getItem("gameUserName");
+    },
     config:{
         numPairs:0,
         theme: ""

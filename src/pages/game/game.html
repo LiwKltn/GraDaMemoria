@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,59 @@
 </head>
 
 
-<body class="h-screen">
+<body class="flex flex-col justify-center items-center">
+    <audio id="audioPlayer" loop>
+        <source src="../../assets/sounds/musicRelax.mp3" type="audio/mp3">
+        <source src="sound/musicRelax.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
 
-    <header>
-        <h1 class="flex text-xl text-slate-900 drop-shadow-lg font-Minnie justify-center items-center p-5">Gra Da Memoria</h1>
+    <header class="h-1/6">
+        <h1 class="flex font-Minnie text-slate-900 drop-shadow-lg font-Minnie justify-center items-center p-4">Gra Da
+            Memoria</h1>
     </header>
 
-    <main class="flex justify-center items-center">
-        <section id="content-cards" class="grid grid-cols-3 justify-items-center md:grid-cols-6">
-
+    <main class="flex flex-col items-center">
+        <section class="flex w-full justify-between">
+            <div class="font-mono text-xl font-bold">THEME</div>
+            <div class="flex font-minnie">
+                <div class="timer bg-black p-2 rounded-md text-white text-xl">
+                    <span class="minute">00</span>
+                    <span class="colon">:</span>
+                    <span class="second">00</span>
+                </div>
+            </div>
         </section>
+
+        <section id="content-cards" class="grid  justify-center items-center md:grid-cols-8"></section>
+
+        <div class="flex justify-center"><button id="return-button"
+            class="w-24 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200">VOLVER</button>
+    </div>
+
     </main>
 
-<footer></footer>
+    <footer
+        class="fixed bottom-0 bg-black mt-4 right-0 left-0 p-4 text-white flex flex-col max-h-11 items-end md:flex-row md:items-center"
+        >
+        <div class="flex items-center justify-center">
+            <div id="soundIcon" class="cursor-pointer">
+                <img src="../../assets/img/sin-musica.png" alt="icono de sonido" style="width: 30px; height: 30px;">
+            </div>
+            <div id="musicIcon" class="cursor-pointer">
+                <img src="../../assets/img/sin-sonido.png" alt="icono de musica" style="width: 30px; height: 30px;">
+            </div>
+            <div id="instructionsIcon" class="cursor-pointer">
+                <img src="../../assets/img/libro-electronico.png" alt="icono de instruciones"
+                    style="width: 30px; height: 30px;">
+            </div>
+        </div>
 
-<script src="game.js"></script>
->
+        <div class="text-sm md:ml-auto">Copyright © 2023 GraDaMemoria</div>
+    </footer>
 
+    <script src="game.js"></script>
+    <script src="/sounds.js"></script>
 
 </body>
 
