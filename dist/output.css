@@ -1000,102 +1000,6 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.flip-card{
-  transition: transform 1s;
-  transform-style: preserve-3d;
-  transform: rotateY( 180deg ) ;
-  transition: transform 0.5s;
-}
-
-.flip-card-front, .flip-card-back {
-  backface-visibility: hidden;
-}
-
-/* Style the back side */
-
-.flip-card-back {
-  transform: rotateY(180deg);
-}
-
-.element{
-  font-size: 0.50rem;
-  line-height: 0.60rem;
-}
-
-.container-card{
-  box-sizing: border-box;
-}
-
-.disappear{
-  visibility: hidden;
-}
-
-.container-card {
-  padding: 5px;
-}
-
-.element {
-  padding: 5px;
-}
-
-footer {
-  background-color: #000;
-}
-
-#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-}
-
-#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
-  transform: translateY(1px);
-}
-
-/* Footer */
-
-footer {
-  background-color: #000;
-}
-
-#soundIcon:hover, #musicIcon:hover, #instructionsIcon:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-}
-
-#soundIcon:active, #musicIcon:active, #instructionsIcon:active {
-  transform: translateY(1px);
-}
-
-input[type="radio"]:checked + label {
-  border: 1px solid #000000;
-  background-color: rgb(182 182 182 / 0.9);
-  color: white;
-}
-
-.listBulletType {
-  margin-left: 25px;
-  list-style-type: auto;
-}
-
-.welcomeLayout{
-  width: 247px;
-  height: 58px;
-  flex-shrink: 0;
-}
-
-.welcomeTypography {
-  color: white;
-  text-align: center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 1.5px black;
-  font-family: Minnie;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 44px;
-  /* 110% */
-}
-
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1195,6 +1099,10 @@ input[type="radio"]:checked + label {
 
   .md\:text-sm {
     font-size: 0.6rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
   }
 }
 
