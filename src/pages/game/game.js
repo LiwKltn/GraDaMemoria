@@ -298,7 +298,15 @@ document.addEventListener('DOMContentLoaded', function () {
   soundIcon.addEventListener('click', toggleSound);
   musicIcon.addEventListener('click', initiateMusic);
   instructionsIcon.addEventListener('click', function() { 
-      window.location.href = '../../pages/instructions/instructions.html'; 
+    window.open('../../pages/instructions/instructions.html','targetWindow',
+    `toolbar=no,
+     location=no,
+     status=no,
+     menubar=no,
+     scrollbars=no,
+     resizable=yes,
+     width=450,
+     height=600`);;  
   });
 
   function toggleSound() {
