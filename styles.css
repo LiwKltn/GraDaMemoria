@@ -4,29 +4,210 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-}
-.card {
-    border: 2px solid #000;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    width: 200px;
-    height: 200px;
-}
+    background-color: rgb(221, 221, 221);
+  }
+  
+  .card {
+    perspective: 1000px;
+    animation: rotateCard 5s linear infinite;
+    
+  }
+  .center-card {
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+   
+  }
+  .word {
+    display: block; 
+    font-size: 50px;
+    margin-bottom: 10px; 
+  }
+  
+  .card-inner {
+    width: 250px;
+    height: 250px;
+    transform-style: preserve-3d;
+    animation: rotateInner 5s linear infinite;
+  }
+  
+  .card-front,
+  .card-back, .card-front-2, .card-front-3 , .card-front-4 , .card-front-5 , .card-front-6 , .card-front-7 , .card-front-8 , .card-front-9 , .card-front-10 , .card-front-11 , .card-front-12 , .card-front-13 , .card-front-14 , .card-front-15 {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 25px;
+  }
+  
+  .card-front {
+    background-color: #00ff15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black;
+  }
+ 
+  .card-front-2 {
+    background-color: rgb(81, 255, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-3 {
+    background-color: rgb(174, 0, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-4 {
+    background-color: rgb(255, 0, 170);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-5 {
+    background-color: rgb(0, 17, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-6 {
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-7 {
+    background-color: rgb(255, 251, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-8 {
+    background-color: rgb(25, 0, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-9 {
+    background-color: #05E0FE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-10 {
+    background-color: rgb(255, 0, 128);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-11 {
+    background-color: rgb(0, 17, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-12 {
+    background-color: rgb(162, 0, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-13 {
+    background-color: #DC0994;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-14 {
+    background-color: #89F456;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
+  .card-front-15 {
+    background-color: #05E0FE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: black;
+    border: solid 3px black; 
+  }
 
-input {
-    width: 150px;
-    height: 25px;
-    padding: 10px;
-    margin: 10px;
-    background-color: black;
-    border-radius: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: black;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
+  .card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-back img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  @keyframes rotateCard {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  @keyframes rotateInner {
+    0%, 100% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+  }
