@@ -1,33 +1,123 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./src/input.css">
-  <link href="./dist/output.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>GraDaMemoria</title>
 </head>
 <body>
-  <!DOCTYPE html>
-  <html lang="es">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="./styles.css">
-      <title>Juego Da Memoria</title>
-  </head>
-  <body>
-      <div class="card">
-          <h1 class="font-Minnie">Juego Da Memoria</h1>
-          <input type="text" id="nombreInput" placeholder="Nombre del jugador">
-          <button onclick="iniciarJuego()">OK</button>
-      </div>
-      <script src="script.js"></script>
-  </body>
-  </html>
-  
- 
-  <script src="./app.js" ></script>
+  <div class="card center-card">
+    <div class="word font-Minnie">Gra</div>
+    <div class="word font-Minnie">Da</div>
+    <div class="word font-Minnie">Memoria</div>
+    <input class="input-name" type="text" id="nombreInput" placeholder="Nombre del jugador">
+    <button class="font-Minnie hover:bg-sky-700 ok-button" onclick="iniciarJuego()">OK</button>
+  </div>
 
+  <!-- Tarjeta adicional 1 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">1</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 1</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 2 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">2</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 2</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 3 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">3</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 3</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 4 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">4</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 4</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 5 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">5</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 5</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 6 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">6</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 6</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 7 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">7</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 7</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 8 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">8</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 8</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta adicional 9 -->
+  <div class="card image-card rotate">
+    <div class="text-content">
+      <div class="word font-Minnie">Tarjeta</div>
+      <div class="word font-Minnie">9</div>
+    </div>
+    <div class="image-content">
+      <div class="additional-text">Texto para Tarjeta 9</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

@@ -1,36 +1,94 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
     height: 100vh;
     margin: 0;
-}
-
-.card {
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
     border: 2px solid #000;
     border-radius: 20px;
     padding: 20px;
     text-align: center;
-    
-}
-
-input {
-    width: 200px;
-    padding: 10px;
-    margin: 10px;
-    background-color: black;
-    border-radius: 10px;
-    color: white;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px
-}
-h1{
-    font-size: 25px;
-}
+    margin: 10px; /* Espaciado entre tarjetas */
+  }
+  
+  .word {
+    display: block; /* Cada palabra en una línea nueva */
+    font-size: 30px;
+    margin-bottom: 10px; /* Espaciado entre palabras */
+  }
+  
+  .center-card {
+    transform: translate(-50%, -50%); /* Mantener la tarjeta "Gra Da Memoria" en el centro */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .image-card {
+    background-image: url('./img/Logo.png'); /* Ruta de la imagen que quieres mostrar */
+    background-size: cover;
+    background-position: center;
+    color: transparent; /* Oculta el texto cuando se muestra la imagen */
+  }
+  
+  .rotate {
+    animation: rotateCard 5s infinite linear; /* Animación de rotación constante para tarjetas adicionales */
+  }
+  
+  .additional-text {
+    font-size: 18px;
+    color: #fff; /* Color del texto, ajusta según sea necesario */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .flip-card {
+    position: relative;
+    perspective: 1000px; /* Agregamos perspectiva para el efecto 3D */
+  }
+  
+  .front-content,
+  .back-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Ocultamos la cara posterior */
+  }
+  
+  .front-content {
+    transform: rotateY(0deg);
+  }
+  
+  .back-content {
+    transform: rotateY(180deg); /* Inicialmente girada 180 grados */
+  }
+  
+  .flip-card:hover .front-content {
+    transform: rotateY(-180deg); /* Al pasar el ratón, giramos la cara frontal */
+  }
+  
+  .flip-card:hover .back-content {
+    transform: rotateY(0deg); /* Al pasar el ratón, mostramos la cara posterior */
+  }
+  
+  @keyframes rotateCard {
+    to {
+      transform: rotateY(360deg); /* Rotación completa en sentido horario */
+    }
+  }
+  
