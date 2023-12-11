@@ -22,18 +22,15 @@ function stopChronometer() {
 }
 
 function updateTimer(milliseconds) {
- 
-    const hour = Math.floor(milliseconds / 3600000);
-    const minute = Math.floor((milliseconds % 3600000) / 60000);
+    const minute = Math.floor(milliseconds / 60000);
     const second = Math.floor((milliseconds % 60000) / 1000);
     const millisecond = milliseconds % 1000;
 
-    document.querySelector('.hour').innerText = hour.toString().padStart(2, '0');
     document.querySelector('.minute').innerText = minute.toString().padStart(2, '0');
     document.querySelector('.second').innerText = second.toString().padStart(2, '0');
-    document.querySelector('.millisecond').innerText = millisecond.toString().padStart(2, '0');
+    document.querySelector('.millisecond').innerText = millisecond.toString().padStart(3, '0');
 }
 
 function redirectToGameOver() {
-    window.location.href = 'aqi poner pagina gameover';
+    window.location.href = 'aquí poner página gameover';
 }
