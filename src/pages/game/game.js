@@ -5,6 +5,7 @@ let gameTheme = localStorage.getItem("gameTheme");
 let numberOfPairs = parseInt(cardsSelected, 10);
 let theme = document.getElementById("theme-name");
 theme.innerHTML = gameTheme;
+let returnButton = document.getElementById("return-button");
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -22,7 +23,7 @@ function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element w-full h-full font-Minnie text-xs md:text-base flex flex-wrap justify-center items-center text-center"
+    "element w-full h-full font-Minnie text-xs md:text-xs flex justify-center items-center text-center"
   );
  
   elementArray.textContent = data.elements[i].element;
@@ -34,7 +35,7 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element flex font-mono text-xs md:text-sm italic text-center font-bold p-2"
+    "element w-full h-full font-mono text-xs md:text-xs flex justify-center items-center text-center"
 );
 
   explanationArray.textContent = data.elements[i].explanation;
@@ -51,21 +52,21 @@ function printCard(data, id) {
   cardImage.src =
     "../../assets/img/card-image.png";
 
-  containerNewCard.setAttribute("class",  "container-card relative m-2 h-18 md:h-28 w-16 md:w-24");
+  containerNewCard.setAttribute("class",  "container-card relative h-36 w-28 m-2");
 
   containerNewCardPair.setAttribute(
     "class",
-    "container-card relative m-2 h-28 md:h-28 w-16 md:w-24"
+    "container-card relative h-36 w-28 m-2"
   );
 
   newCard.setAttribute(
     "class",
-    "flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
+    "flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer h-full w-full");
 
   newCardPair.setAttribute(
-    "class","flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer w-full h-full");
+    "class","flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer h-full w-full");
 
-  cardImage.setAttribute("class", "flip-card-front  inset-0 rounded-xl absolute object-cover cursor-pointer w-full h-full");
+  cardImage.setAttribute("class", "flip-card-front  inset-0 rounded-xl absolute object-cover cursor-pointer h-full w-full");
 
   newCard.classList.add("card");
   newCardPair.classList.add("pair");
@@ -165,7 +166,7 @@ function cardsDisplay(){
   if (numberOfPairs === 6){
     contentCard.setAttribute("class", "grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 justify-center items-center");
   } else if (numberOfPairs === 12){
-    contentCard.setAttribute("class", "grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 justify-center items-center");
+    contentCard.setAttribute("class", "grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 justify-center items-center");
   } else {
     contentCard.setAttribute("class", "grid grid-cols-3 md:grid-cols-6 lg:grid-cols-10 justify-center items-center");
   }
@@ -318,70 +319,41 @@ document.addEventListener('DOMContentLoaded', function () {
   updateIcons();
 });
 
-let game = {
-  config:{
-      remainTime:5*60 //5min de juego = 5x60seg
-  },
-  util: {
-      getHHMMSSFromSeconds: function(seconds, renderHours){
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
+window.onload = function() {
+  startChronometer();
 
-    const timeFormat = [];
-          if(renderHours)
-              timeFormat.push(String(hours).padStart(2, '0'));
-          timeFormat.push(String(minutes).padStart(2, '0'));
-          timeFormat.push(String(remainingSeconds).padStart(2, '0'));
+  setTimeout(function() {
+      stopChronometer();
+      redirectToGameOver();
+  }, 600000);
+};
 
-    return timeFormat.join(':');
-      }
-  },
-  remainingTime: 0,
-  setRemainingTime: function(){
-      this.remainingTime = this.config.remainTime;
-  },
-  intervalId: null,
-  
-  startCountdown: function(){
-      document.getElementById("countDown").classList.remove("criticalTime")
-      this.setRemainingTime();
-      let _this = this;
-      this.intervalId = setInterval(() => {
-          _this.remainingTime--;
-          if (_this.remainingTime===0)
-              _this.clearPlayedGameInterval();
-          else if(_this.remainingTime <= 5){
-              //Añadir efecto crítico te quedas sin tiempo y vas a perder.
-              document.getElementById("countDown").setAttribute("class", "criticalTime")
-          }
-          //En todos los casos debemos renderizar el tiempo de juego restante
-          _this.renderRemainingTime();
+let timerInterval;
 
-      },1000);
-  },
-
-  clearPlayedGameInterval: function(){
-      clearInterval(this.intervalId)
-  },
-  
-  getFormatedElapsedTime: function(){
-
-  },
-  renderRemainingTime: function(){
-      let result = game.util.getHHMMSSFromSeconds(this.remainingTime);
-      document.getElementById("countDown").innerHTML = result;
-      
-  }
+function startChronometer() {
+  let milliseconds = 0;
+  timerInterval = setInterval(function() {
+      milliseconds += 10;
+      updateTimer(milliseconds);
+  }, 10);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    let returnButton = document.getElementById('return-button');
+function stopChronometer() {
+  clearInterval(timerInterval);
+}
 
-    returnButton.addEventListener('click', function () {
-        
-        window.location.href = '../../pages/config/config.html';
-    });
+function updateTimer(milliseconds) {
+  const minute = Math.floor(milliseconds / 60000);
+  const second = Math.floor((milliseconds % 60000) / 1000);
+  const millisecond = milliseconds % 1000;
+
+  document.querySelector('.minute').innerText = minute.toString().padStart(2, '0');
+  document.querySelector('.second').innerText = second.toString().padStart(2, '0');
+  document.querySelector('.millisecond').innerText = millisecond.toString().padStart(3, '0');
+}
+
+
+returnButton.addEventListener('click', function () {
+  window.location.href = '../config/config.html';
 });
-
 

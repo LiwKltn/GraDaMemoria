@@ -31,7 +31,7 @@ let game = {
             _this.remainingTime--;
             if (_this.remainingTime===0){
                 _this.clearPlayedGameInterval();
-                window.location.href = "gameover.html";
+                window.location.href = "game-over.html";
             }
             else if(_this.remainingTime <= 5){
                 //Añadir efecto crítico te quedas sin tiempo y vas a perder.

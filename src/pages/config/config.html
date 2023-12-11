@@ -16,11 +16,11 @@
   </header>
 
   <div class="m-4">
-    <h1 id="welcomeMessage" class="welcomeTypography font-Minnie  text-center"></h1>
+    <h1 id="welcomeMessage" class="welcomeTypography font-Minnie text-center text-2xl"></h1>
   </div>
 
   <div class="m-4">
-    <h2 class="font-Minnie flex justify-center">Elige el número de cartas</h2>
+    <h2 class="font-Minnie flex justify-center text-xl">Elige el número de cartas</h2>
   <ul class="flex justify-center max-w-md mx-auto">
     <li class="relative m-4" style="margin-right: 15px;">
       <input class="sr-only peer" type="radio" value="12" name="answer" id="answer_12">
@@ -46,7 +46,7 @@
 </div>
 
 <div class="m-4">
-  <h2 class="font-Minnie flex justify-center">Elige el tema</h2>
+  <h2 class="font-Minnie flex justify-center text-xl">Elige el tema</h2>
 
   <ul class="flex justify-center max-w-md mx-auto">
     <li class="relative m-4" style="margin-right: 15px;">
@@ -82,20 +82,20 @@
     Tu navegador no soporta la etiqueta de audio.
   </audio>
 
-  <footer
-    class="fixed bottom-0 bg-black right-0 left-0 p-4 text-white flex flex-col items-end md:flex-row md:items-center"
-    style="max-height: 3rem;">
-    <div id="soundIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2">
-      <img src="../../assets/img/sin-musica.png" alt="icono de sonido" style="width: 30px; height: 30px;">
-    </div>
-    <div id="musicIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2">
-      <img src="../../assets/img/sin-sonido.png" alt="icono de musica" style="width: 30px; height: 30px;">
-    </div>
-    <div id="instructionsIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2 md:ml-4">
-      <img src="../../assets/img/libro-electronico.png" alt="icono de instruciones" style="width: 30px; height: 30px;">
-    </div>
-    <div class="text-sm md:ml-auto">Copyright © 2023 GraDaMemoria</div>
-  </footer>
+  <footer  class="fixed bottom-0 bg-black right-0 left-0 p-4 text-white flex max-h-11 justify-between md:flex-row md:items-center">
+  <div class="flex items-center justify-center">
+      <div id="soundIcon" class="cursor-pointer">
+          <img src="../../assets/img/sin-musica.png" alt="icono de sonido" style="width: 30px; height: 30px;">
+      </div>
+      <div id="musicIcon" class="cursor-pointer">
+          <img src="../../assets/img/sin-sonido.png" alt="icono de musica" style="width: 30px; height: 30px;">
+      </div>
+      <div id="instructionsIcon" class="cursor-pointer">
+          <img src="../../assets/img/libro-electronico.png" alt="icono de instruciones" style="width: 30px; height: 30px;">
+      </div>
+  </div>
+  <div class="text-sm md:ml-auto font-mono">Copyright © 2023 GraDaMemoria</div>
+</footer>
 
   <script src="./config.js"></script>
   <script src="/sounds.js"></script>

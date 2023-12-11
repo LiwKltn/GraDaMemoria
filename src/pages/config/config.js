@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (game.getNumPairs() === 0 || game.getTheme() === "") {
       let message = document.createElement("h3");
       message.innerHTML = "Debes elegir un número de cartas y un tema.";
-      message.setAttribute("class", "font-mono text-lg text-italic mt-3 text-red-900 animate-pulse");
+      message.setAttribute("class", "font-mono text-lg text-italic text-center mt-3 text-red-900 animate-pulse");
       message.classList.add("ping");
 
       document.body.appendChild(message);
