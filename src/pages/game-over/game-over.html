@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gra Da Memoria</title>
+    <link rel="stylesheet" href="../../../src/input.css">
+    <link href="../../../dist/output.css" rel="stylesheet">
+</head>
+<body onload="initPage();">
+    <header>
+        <h1 class="p-5 text-black text-3xl text-center drop-shadow-lg font-Minnie">Gra Da Memoria</h1>
+    </header>
+    <div class="flex flex-col items-center justify-center min-h-screen space-y-10">
+        <div class="flex items-center space-x-2">
+            <img src="img/pixel.png" alt="corazon vacio" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20">
+            <img src="img/pixel.png" alt="corazon vacio" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20">
+            <img src="img/pixel.png" alt="corazon vacio" class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-20 xl:h-20">
+            
+        </div>
+        <div class="flex flex-col items-center">
+            <h1 class="font-Minnie text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center animate-ping text-red-500 mt-4 mb-4">Game Over</h1>
+            <div class="flex flex-col items-center space-y-4">
+                <button id="newgame-button" class="w-24 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110 hover:text-stone-900 hover:bg-stone-200 duration-200">NUEVO JUEGO</button>
+                <button id="reset-button" class="w-32 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110 hover:text-stone-900 hover:bg-stone-200 duration-200">REANUDAR</button>
+                <button id="exit-button" class="w-24 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110 hover:text-stone-900 hover:bg-stone-200 duration-200">SALIR</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" loop>
+        <source src="../../assets/sounds/musicRelax.mp3" type="audio/mp3">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <footer class="fixed bottom-0 bg-black right-0 left-0 p-4 text-white flex flex-col items-end md:flex-row md:items-center" style="max-height: 3rem;">
+        <div id="soundIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2">
+            <img src="../../assets/img/sin-musica.png" alt="icono de sonido" style="width: 30px; height: 30px;">
+        </div>
+        <div id="musicIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2">
+            <img src="../../assets/img/sin-sonido.png" alt="icono de musica" style="width: 30px; height: 30px;">
+        </div>
+        <div id="instructionsIcon" class="cursor-pointer mb-2 md:mb-0 md:mr-2 md:ml-4">
+            <img src="../../assets/img/libro-electronico.png" alt="icono de instrucciones" style="width: 30px; height: 30px;">
+        </div>
+        <div class="text-sm md:ml-auto">Copyright © 2023 GraDaMemoria</div>
+    </footer>
+
+    <script src="/sounds.js" ></script>
+    <script src="winner.js"></script>
+    <script src="ranking.js"></script>
