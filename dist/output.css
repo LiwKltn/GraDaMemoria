@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -121,10 +121,8 @@ strong {
 }
 
 /*
-1. Use the user's configured `mono` font-family by default.
-2. Use the user's configured `mono` font-feature-settings by default.
-3. Use the user's configured `mono` font-variation-settings by default.
-4. Correct the odd `em` font sizing in all browsers.
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
@@ -133,12 +131,8 @@ samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
-  font-feature-settings: normal;
-  /* 2 */
-  font-variation-settings: normal;
-  /* 3 */
   font-size: 1em;
-  /* 4 */
+  /* 2 */
 }
 
 /*
@@ -598,6 +592,10 @@ video {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-0 {
   inset: 0px;
 }
@@ -626,6 +624,11 @@ video {
   margin: 1rem;
 }
 
+.mx-7 {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -652,16 +655,16 @@ video {
   margin-right: 1rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .flex {
@@ -680,8 +683,12 @@ video {
   height: 16.666667%;
 }
 
-.h-28 {
-  height: 7rem;
+.h-16 {
+  height: 4rem;
+}
+
+.h-32 {
+  height: 8rem;
 }
 
 .h-8 {
@@ -696,8 +703,8 @@ video {
   height: 100vh;
 }
 
-.h-16 {
-  height: 4rem;
+.h-36 {
+  height: 9rem;
 }
 
 .max-h-11 {
@@ -716,6 +723,10 @@ video {
   width: 6rem;
 }
 
+.w-28 {
+  width: 7rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -726,10 +737,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-32 {
-  width: 8rem;
 }
 
 .max-w-2xl {
@@ -746,6 +753,22 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
 }
 
 @keyframes ping {
@@ -769,22 +792,6 @@ video {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 1s infinite;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -803,10 +810,6 @@ video {
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
 }
 
 .items-end {
@@ -843,6 +846,18 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .rounded {
@@ -980,10 +995,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.pl-4 {
-  padding-left: 1rem;
-}
-
 .text-left {
   text-align: left;
 }
@@ -1028,6 +1039,11 @@ video {
   font-style: italic;
 }
 
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
@@ -1051,11 +1067,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .shadow-md {
@@ -1126,6 +1137,41 @@ video {
   padding: 5px;
 }
 
+input[type="radio"]:checked + label {
+  background-color: rgb(182 182 182 / 0.9);
+  color: white;
+}
+
+.criticalTime{
+  width:200px;
+  height: 50px;
+  background-color: rgb(255, 0, 102);
+  padding: 15px;
+  text-align: center;
+  line-height: 50px;
+  animation: blink 1s linear infinite;
+}
+
+.criticalTime span{
+  font-size: 25px;
+  font-family: cursive;
+  color: white;
+}
+
+@keyframes blink{
+  0%{
+    opacity: 0;
+  }
+
+  50%{
+    opacity: .5;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
 .hover\:-translate-x-1:hover {
   --tw-translate-x: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1166,6 +1212,10 @@ video {
     width: 2.5rem;
   }
 
+  .sm\:text-3xl {
+    font-size: 1.953rem;
+  }
+
   .sm\:text-5xl {
     font-size: 3.052rem;
   }
@@ -1192,16 +1242,8 @@ video {
     height: 3rem;
   }
 
-  .md\:h-28 {
-    height: 7rem;
-  }
-
   .md\:w-12 {
     width: 3rem;
-  }
-
-  .md\:w-24 {
-    width: 6rem;
   }
 
   .md\:grid-cols-3 {
@@ -1224,12 +1266,8 @@ video {
     align-items: center;
   }
 
-  .md\:text-base {
-    font-size: 0.75rem;
-  }
-
-  .md\:text-sm {
-    font-size: 0.6rem;
+  .md\:text-4xl {
+    font-size: 2.441rem;
   }
 
   .md\:text-xl {
@@ -1257,6 +1295,10 @@ video {
   .lg\:grid-cols-8 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
+
+  .lg\:text-5xl {
+    font-size: 3.052rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1268,3 +1310,4 @@ video {
     width: 5rem;
   }
 }
+

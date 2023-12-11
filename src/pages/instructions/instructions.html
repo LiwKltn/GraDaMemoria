@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +9,48 @@
     <link href="../../../dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
+
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <div id="contenedor" class="text-center bg-white p-8 rounded shadow-md max-w-2xl">
-        <h1 class="text-2xl font-bold mb-4">Instrucciones del Juego de Cartas de Parejas</h1>
-        <p class="mb-4">Bienvenido a Gra Da Memoria con temas de HTML, CSS y JavaScript. ¡Diviértete emparejando las cartas!</p>
-        <ul class="text-left">
-            <li>Selecciona el número de cartas:
-                <ul>
-                    <li>12 Cartas</li>
-                    <li>24 Cartas</li>
-                    <li>30 Cartas</li>
-                </ul>
-            </li>
-            <li>Selecciona el tema:
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                </ul>
-            </li>
+    <div id="contenedor" class="text-center bg-white rounded shadow-md max-w-2xl p-8 rounded">
+        <h1 class="text-xl font-bold font-Minnie">Instrucciones del Juego de Cartas de Parejas</h1>
+        <h2 class="font-mono">Bienvenido a Gra Da Memoria con temas de HTML, CSS y JavaScript. ¡Diviértete
+            emparejando las cartas!</h2>
+        <h2 class="text-left font-mono font-bold text-left text-2xl mt-4">Secciona el número de cartas:</h2>
+        <ul class="text-left font-mono">
+            <li>12 Cartas</li>
+            <li>24 Cartas</li>
+            <li>30 Cartas</li>
         </ul>
+        <h2 class="text-left font-mono font-bold text-left text-2xl mt-4">Selecciona el tema</h2>
+        <ul class="text-left font-mono">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+        <h2 class="text-left font-mono font-bold text-left text-2xl mt-4">Una vez seleccionada la configuración, haz
+            clic en "Iniciar".</h2>
+        <h2 class="font-mono text-left text-2xl font-bold mt-4">Objetivo del Juego</h2>
+        <p class="text-left font-mono">Encuentra todas las parejas de cartas coincidentes en el menor tiempo posible.
+        </p>
 
-        <p class="mb-4">Una vez seleccionada la configuración, haz clic en "Iniciar".</p>
+        <h2 class="mt-4 font-mono text-left text-2xl font-bold">Cómo Jugar</h2>
 
-        <h2 class="text-xl font-bold mb-2">Objetivo del Juego</h2>
-
-        <p class="mb-4">Encuentra todas las parejas de cartas coincidentes en el menor tiempo posible.</p>
-
-        <h2 class="text-xl font-bold mb-2">Cómo Jugar</h2>
-
-        <ol class="text-left list-decimal pl-4">
+        <ol class="text-left font-mono list-decimal text-left mx-7">
             <li>Voltea dos cartas haciendo clic en ellas.</li>
             <li>Si las cartas son pareja, desaparecerán.</li>
             <li>Si no son pareja, se voltearán de nuevo después de un breve momento.</li>
             <li>Repite hasta que todas las parejas sean encontradas.</li>
         </ol>
 
-        <p class="mb-4">¡Buena suerte y disfruta del juego!</p>
-     <div class="flex justify-center"><button id="return-button" class="w-24 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">VOLVER</button></div>
+        <h3 class="my-4 font-mono text-left text-xl italic font-bold text-center">¡Buena suerte y disfruta del juego!
+        </h3>
+        <div class="flex justify-center">
+            <a href="../config/config.html"><button id="return-button"
+                    class="w-24 transition p-2 rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200 duration-200">VOLVER</button></a>
+        </div>
         <script src="./returnButton.js"></script>
     </div>
 </body>
+
 </html>
