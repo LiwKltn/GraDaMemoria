@@ -1,31 +1,19 @@
-function initPage(){
-    ranking.renderRanking();
-}
+let cardsSelected = localStorage.getItem("gameNumPairs");
+let gameTheme = localStorage.getItem("gameTheme");
+let username = localStorage.getItem("gameUserName");
+let exitButton = document.getElementById('exit-button');
+let newGame = document.getElementById('newgame-button');
+let listWinners = document.getElementById("ranking");
+let rankingEntries = localStorage.getItem("highRankings");
 
+listWinners.innerHTML(rankingEntries);
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    var exitButton = document.getElementById('exit-button');
-
-    exitButton.addEventListener('click', function () {
-        window.location.href = '/index.html';
-    });
+exitButton.addEventListener('click', function () {
+ window.location.href = `/index.html`;
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var newGameButton = document.getElementById('newgame-button');
-
-    newGameButton.addEventListener('click', function () {
-        
-        window.location.href = '../config/config.html';
-    });
+newGameButton.addEventListener('click', function () {
+ window.location.href = `../config/config.html`; 
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var newGameButton = document.getElementById('reset-button');
 
-    newGameButton.addEventListener('click', function () {
-        
-        window.location.href = '../game/game.html';
-    });
-});

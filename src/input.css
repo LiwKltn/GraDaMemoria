@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url('https://fonts.cdnfonts.com/css/minnie');
 
+
 .flip-card{
   transition: transform 1s;
   transform-style: preserve-3d;

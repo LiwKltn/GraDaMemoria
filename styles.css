@@ -6,6 +6,10 @@ body {
     margin: 0;
   }
   
+  h2{
+    line-height: 0.5rem;
+  }
+
   .card {
     perspective: 1000px;
     animation: rotateCard 5s linear infinite;

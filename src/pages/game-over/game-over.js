@@ -21,3 +21,4 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '../game/game.html';
     });
 }); 
+

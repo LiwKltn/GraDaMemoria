@@ -2,11 +2,13 @@ let contentCard = document.getElementById("content-cards");
 let generatedIds = new Map();
 let cardsSelected = localStorage.getItem("gameNumPairs");
 let gameTheme = localStorage.getItem("gameTheme");
+let gamePlayer = localStorage.getItem("gameUserName");
 let numberOfPairs = cardsSelected/2;
 let theme = document.getElementById("theme-name");
 theme.innerHTML = gameTheme;
 let returnButton = document.getElementById("return-button");
 let undoButton = document.getElementById("undo-button");
+let elapsedSeconds;
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -20,11 +22,48 @@ async function getData() {
   return data;
 }
 
+window.onload = function() {
+  startChronometer();
+
+  setTimeout(function() {
+      stopChronometer();
+      redirectToGameOver();
+  }, 60000);
+};
+
+function redirectToGameOver() {
+  window.location.href = `../game-over/game-over.html`;
+}
+
+let timerInterval;
+
+function startChronometer() {
+  let milliseconds = 0;
+  timerInterval = setInterval(function() {
+      milliseconds += 10;
+      updateTimer(milliseconds);
+  }, 10);
+}
+
+function stopChronometer() {
+   clearInterval(timerInterval);
+}
+
+function updateTimer(milliseconds) {
+  const minute = Math.floor(milliseconds / 60000);
+  const second = Math.floor((milliseconds % 60000) / 1000);
+  const millisecond = milliseconds % 1000;
+
+  document.querySelector('.minute').innerText = minute.toString().padStart(2, '0');
+  document.querySelector('.second').innerText = second.toString().padStart(2, '0');
+  document.querySelector('.millisecond').innerText = millisecond.toString().padStart(3, '0');
+}
+
 function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element w-full h-full font-Minnie text-xs md:text-xs flex justify-center items-center text-center"
+    "element p-3 w-full h-full font-Minnie flex justify-center items-center text-center"
   );
 
  try{
@@ -35,14 +74,13 @@ function printElement(data, i) {
   }
 
   return elementArray;
-  
 }
 
 function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element w-full h-full font-mono text-xs md:text-xs flex justify-center items-center text-center"
+    "element w-full h-full p-3 font-mono italic font-bold flex justify-center items-center text-center"
 );
 
 try{
@@ -65,11 +103,11 @@ function printCard(data, id) {
   cardImage.src =
     "../../assets/img/card-image.png";
 
-  containerNewCard.setAttribute("class",  "container-card relative h-36 w-28 m-2");
+  containerNewCard.setAttribute("class",  "container-card m-2 relative h-36 w-28 md:h-40 md:w-32 pointer");
 
   containerNewCardPair.setAttribute(
     "class",
-    "container-card relative h-36 w-28 m-2"
+    "container-card relative h-36 w-28 md:h-40 md:w-32 m-2"
   );
 
   newCard.setAttribute(
@@ -79,7 +117,7 @@ function printCard(data, id) {
   newCardPair.setAttribute(
     "class","flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer h-full w-full");
 
-  cardImage.setAttribute("class", "flip-card-front  inset-0 rounded-xl absolute object-cover cursor-pointer h-full w-full");
+  cardImage.setAttribute("class", "flip-card-front pointer inset-0 rounded-xl absolute object-cover cursor-pointer h-full w-full");
 
   newCard.classList.add("card");
   newCardPair.classList.add("pair");
@@ -235,45 +273,43 @@ function makingPairs() {
       }
     }
   });
-
   function resetCards() {
     firstCard = null;
     secondCard = null;
     firstContainer = null;
     secondContainer = null;
     isBusy = false;
+
+    if (hits === numberOfPairs) {
+      stopChronometer();
+      redirectToWinnerPage();
   }
+}
+}
+
+function redirectToWinnerPage() {
+  window.location.href = `../winner/winner.html`;
 }
 
 makingPairs();
 
-function points(timer, cards) {
-  let time = timer;
-  let validHits = hits - mistakes;
-  let hitPorcentual = validHits / cards * 100;
-  let total;
+const POINTS_PER_CARD = 10;
+const PENALTY_PER_ERROR = 5;
+// const BONUS_TIME = 2; // 
 
-  if (validHits < 0) {
-    validHits = 0;
-  }
+function score() {
+  let score = cardsSelected * POINTS_PER_CARD;
 
-  if (timer === 0) {
-    total = 0;
-  }
+  score -= mistakes * PENALTY_PER_ERROR;
+console.log(score)
+  // const pointsByTime = Math.max(0, (cardsSelected * BONUS_TIME) - elapsedSeconds);
+  // score += pointsByTime;
 
-  if (cards === 12) {
-    total = hitPorcentual * time;
-  } else if (cards === 24) {
-    total = hitPorcentual * (time * 2);
-  } else {
-    total = hitPorcentual * (time * 3);
-  }
+  ranking.addNewRanking({userName: gamePlayer, points:score});
 
-  return total;
 }
 
 
-points(30, 12);
 
 radioButtons = document.querySelectorAll("input[name='answer']");
 radioButtons.forEach(radioButton => {
@@ -298,15 +334,15 @@ document.addEventListener('DOMContentLoaded', function () {
   soundIcon.addEventListener('click', toggleSound);
   musicIcon.addEventListener('click', initiateMusic);
   instructionsIcon.addEventListener('click', function() { 
-    window.open('../../pages/instructions/instructions.html','targetWindow',
-    `toolbar=no,
-     location=no,
-     status=no,
-     menubar=no,
-     scrollbars=no,
-     resizable=yes,
-     width=450,
-     height=600`);;  
+      window.open('../../pages/instructions/instructions.html','targetWindow',
+      `toolbar=no,
+       location=no,
+       status=no,
+       menubar=no,
+       scrollbars=no,
+       resizable=yes,
+       width=450,
+       height=600`);; 
   });
 
   function toggleSound() {
@@ -320,8 +356,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateIcons() {
-      const soundIconImg = audio.paused ? 'img/sin-sonido.png' : 'img/sin-sonido.png';
-      const musicIconImg = audio.paused ? 'img/sin-musica.png' : 'img/sin-musica.png';
+      const soundIconImg = audio.paused ? '/src/assets/img/sin-sonido.png' : '/src/assets/img/sin-sonido.png';
+      const musicIconImg = audio.paused ? '/src/assets/img/sin-musica.png' : '/src/assets/img/sin-musica.png';
 
       soundIcon.innerHTML = `<img src="${soundIconImg}" alt="icono de sonido" style="width: 30px; height: 30px;">`;
       musicIcon.innerHTML = `<img src="${musicIconImg}" alt="icono de musica" style="width: 30px; height: 30px;">`;
@@ -330,41 +366,8 @@ document.addEventListener('DOMContentLoaded', function () {
   updateIcons();
 });
 
-window.onload = function() {
-  startChronometer();
-
-  setTimeout(function() {
-      stopChronometer();
-      redirectToGameOver();
-  }, 600000);
-};
-
-let timerInterval;
-
-function startChronometer() {
-  let milliseconds = 0;
-  timerInterval = setInterval(function() {
-      milliseconds += 10;
-      updateTimer(milliseconds);
-  }, 10);
-}
-
-function stopChronometer() {
-  clearInterval(timerInterval);
-}
-
-function updateTimer(milliseconds) {
-  const minute = Math.floor(milliseconds / 60000);
-  const second = Math.floor((milliseconds % 60000) / 1000);
-  const millisecond = milliseconds % 1000;
-
-  document.querySelector('.minute').innerText = minute.toString().padStart(2, '0');
-  document.querySelector('.second').innerText = second.toString().padStart(2, '0');
-  document.querySelector('.millisecond').innerText = millisecond.toString().padStart(3, '0');
-}
 
 
 returnButton.addEventListener('click', function () {
   window.location.href = '../config/config.html';
-});
-
+})
