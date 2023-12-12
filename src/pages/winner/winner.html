@@ -12,24 +12,24 @@
         <h1 class="p-5 text-black text-3xl text-center drop-shadow-lg font-Minnie">Gra Da Memoria</h1>
     </header>
 
-    <div class="flex flex-col items-center mt-10">
-        <div class="flex space-x-4">
+    <div class="flex flex-col items-center">
+        <div class="flex space-x-4 m-10">
           <img src="corazonlleno.png" class="w-16 h-16 animate-pulse" />
           <img src="corazonlleno.png" class="w-16 h-16 animate-pulse" />
           <img src="corazonlleno.png" class="w-16 h-16 animate-pulse" />
         </div>
-        <div id="winner" class="font-Minnie text-4xl text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-bounce mt-4">GANASTE!!</div>
+        <div id="winner" class="font-Minnie text-4xl text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-bounce my-6">GANASTE!!</div>
     </div>
 
-    <div>
-        <ul id="ranking" class="font-mono font-lg font-bold flex flex-col items-center justify-center">
+    <div class="flex justify-center ">
+        <ol id="ranking" type="1" class="font-bold font-mono flex flex-col items-center justify-center bg-gradient-to-r from-indigo-500 rounded">
             
-        </ul>
+        </ol>
     </div>
 
-    <div class="flex justify-center"><button id="newgame-button" class="w-24 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">NUEVO JUEGO</button></div>
+    <div class="flex justify-center"><a href="../config/config.html"><button id="newgame-button" class="w-32 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">NUEVO JUEGO</button></a></div>
 
-    <div class="flex justify-center"><button id="exit-button" class="w-24 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">SALIR</button></div>
+    <div class="flex justify-center"><a href="/index.html"><button id="exit-button" class="w-32 my-4 transition rounded font-Minnie ease-in-out delay-150 bg-stone-950 text-stone-200 hover:-translate-y-1 hover:scale-110  hover:text-stone-900 hover:bg-stone-200  duration-200">SALIR</button></a></div>
 
     <audio id="audioPlayer" loop>
         <source src="../../assets/sounds/musicRelax.mp3" type="audio/mp3">

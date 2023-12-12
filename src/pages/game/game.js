@@ -8,7 +8,7 @@ let theme = document.getElementById("theme-name");
 theme.innerHTML = gameTheme;
 let returnButton = document.getElementById("return-button");
 let undoButton = document.getElementById("undo-button");
-let elapsedSeconds;
+
 
 async function getData() {
   const urlHtml = "../../../public/json/card-content.json";
@@ -63,7 +63,7 @@ function printElement(data, i) {
   let elementArray = document.createElement("h2");
   elementArray.setAttribute(
     "class",
-    "element p-3 w-full h-full font-Minnie flex justify-center items-center text-center"
+    "element p-3 w-full h-full font-Minnie flex flex-wrap justify-center text-center"
   );
 
  try{
@@ -80,7 +80,7 @@ function printExplanation(data, i) {
   let explanationArray = document.createElement("h2");
   explanationArray.setAttribute(
     "class",
-    "element w-full h-full p-3 font-mono italic font-bold flex justify-center items-center text-center"
+    "element w-full h-full p-3 font-mono italic font-bold flex flex-wrap text-center"
 );
 
 try{
@@ -103,7 +103,7 @@ function printCard(data, id) {
   cardImage.src =
     "../../assets/img/card-image.png";
 
-  containerNewCard.setAttribute("class",  "container-card m-2 relative h-36 w-28 md:h-40 md:w-32 pointer");
+  containerNewCard.setAttribute("class",  "container-card m-2 relative h-36 w-28 md:h-40 md:w-32 pointer flex items-center");
 
   containerNewCardPair.setAttribute(
     "class",
@@ -112,10 +112,10 @@ function printCard(data, id) {
 
   newCard.setAttribute(
     "class",
-    "flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer h-full w-full");
+    "flip-card-back flex flex-wrap items-center absolute rounded-xl justify-center shadow-xl cursor-pointer h-full w-full");
 
   newCardPair.setAttribute(
-    "class","flip-card-back flex absolute rounded-xl justify-center items-center shadow-xl cursor-pointer h-full w-full");
+    "class","flip-card-back flex flex-wrap absolute rounded-xl shadow-xl cursor-pointer h-full w-full");
 
   cardImage.setAttribute("class", "flip-card-front pointer inset-0 rounded-xl absolute object-cover cursor-pointer h-full w-full");
 
@@ -282,6 +282,7 @@ function makingPairs() {
 
     if (hits === numberOfPairs) {
       stopChronometer();
+      score();
       redirectToWinnerPage();
   }
 }
@@ -301,12 +302,11 @@ function score() {
   let score = cardsSelected * POINTS_PER_CARD;
 
   score -= mistakes * PENALTY_PER_ERROR;
-console.log(score)
+ console.log(score)
   // const pointsByTime = Math.max(0, (cardsSelected * BONUS_TIME) - elapsedSeconds);
   // score += pointsByTime;
 
   ranking.addNewRanking({userName: gamePlayer, points:score});
-
 }
 
 

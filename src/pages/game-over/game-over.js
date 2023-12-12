@@ -1,3 +1,8 @@
+function goBack() {
+    // Volta para a página anterior
+    history.back();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     var exitButton = document.getElementById('exit-button');
 
